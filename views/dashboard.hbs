@@ -1,1 +1,54 @@
 <h1>Welcome to open stack</h1>
+
+<h3>Images</h3>
+{{#if images.length}}
+    {{images.length}} Nova flavors available:
+    <ul>
+    {{#each images}}
+        <li data-id="{{id}}">{{name}} - Status: {{status}} - DataType: {{links.[2].type}} - href: {{links.[0].href}}</li>
+    {{/each}}
+    </ul>
+{{else}}
+    There's currently no images configured
+{{/if}}
+<button type="button" class="create-image">Create image</button>
+
+<h3>Nova flavors</h3>
+{{#if flavors.length}}
+    {{flavors.length}} Nova flavors available:
+    <ul>
+    {{#each flavors}}
+        <li data-id="{{id}}">{{name}} - Status: {{status}} - RAM: {{ram}} - href: {{links.[0].href}}</li>
+    {{/each}}
+    </ul>
+{{else}}
+    There's currently no nova flavors configured
+{{/if}}
+<button type="button" class="create-flavor">Create Nova Flavor</button>
+
+<h3>Servers</h3>
+{{#if servers.length}}
+    {{servers.length}} servers available:
+    <ul>
+    {{#each servers}}
+        <li data-id="{{id}}">{{name}} - Status: {{status}} - href: {{links.[0].href}}</li>
+    {{/each}}
+    </ul>
+{{else}}
+    There's currently no nova flavors configured
+{{/if}}
+<button type="button" class="create-server">Create Server</button>
+
+<h3>Networks</h3>
+{{#if networks.length}}
+    {{networks.length}} servers available:
+    <ul>
+    {{#each networks}}
+        <li data-id="{{id}}" data-tenant="{{tenant_id}}">{{name}} - Status: {{status}} - type: {{provider:network_type}}</li>
+    {{/each}}
+    </ul>
+{{else}}
+    There's currently no nova flavors configured
+{{/if}}
+<button type="button" class="create-network">Create Network</button>
+

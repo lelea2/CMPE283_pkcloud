@@ -27,6 +27,10 @@ module.exports = (function() {
         return getData('GET_FLAVORS', null, data);
     }
 
+    function getNetworks(data) {
+        return getData('GET_NETWORKS', null, data);
+    }
+
     /**
      * Generate REST url
      * @return {String} url
@@ -96,6 +100,7 @@ module.exports = (function() {
         getToken: getToken,
         getImages: getImages,
         getServers: getServers,
-        getFlavors: getFlavors
+        getFlavors: getFlavors,
+        getNetworks: getNetworks
     };
 }());

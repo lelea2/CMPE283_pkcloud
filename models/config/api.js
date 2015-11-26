@@ -6,15 +6,19 @@ module.exports = {
         "method": "POST"
     },
     "GET_IMAGES": {
-        "url": "http://localhost:8774/v2/{tenant_id}/images",
+        "url": "http://localhost:8774/v2/{tenant_id}/images/detail",
         "method": "GET"
     },
     "GET_SERVERS": {
-        "url": "http://localhost:8774/v2/{tenant_id}/servers",
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/detail",
         "method": "GET"
     },
     "GET_FLAVORS": {
-        "url": "http://localhost:8774/v2/{tenant_id}/flavors",
+        "url": "http://localhost:8774/v2/{tenant_id}/flavors/detail",
+        "method": "GET"
+    },
+    "GET_NETWORKS": {
+        "url": "http://localhost:9696/v2.0/networks",
         "method": "GET"
     },
     "GET_LIMITS": {
