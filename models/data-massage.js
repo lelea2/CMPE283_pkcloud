@@ -14,34 +14,59 @@ module.exports = (function() {
         return getData('GET_TOKEN', OPENSTACK_CONFIG.AUTHENTICATION);
     }
 
+    function getImages(data) {
+        //console.log(data);
+        return getData('GET_IMAGES', null, data);
+    }
+
+    function getServers(data) {
+        return getData('GET_SERVERS', null, data);
+    }
+
+    function getFlavors(data) {
+        return getData('GET_FLAVORS', null, data);
+    }
+
     /**
      * Generate REST url
      * @return {String} url
      */
-    function getFinalURL(url, obj) {
-        var reqObj = obj || {};
-        return url.replace('{tenant_id}');
+    function getFinalURL(url, obj, data) {
+        if (data && data.tenant_id) {
+            return url.replace('{tenant_id}', data.tenant_id);
+        } else {
+            return url;
+        }
     }
 
     //Helper function to get current partnerId (default walgreen)
-    function generateReqBody(callname, obj) {
+    function generateReqBody(callname, obj, data) {
         var restcall = URL[callname],
-            reqObj = obj || {};
-        return {
-            url: getFinalURL(restcall.url, reqObj),
-            method: restcall.method,
-            headers: {
+            reqObj = obj || {},
+            headers = {};
+        if (!!data) {
+            headers = {
+                'Accept': 'application/json',
+                'X-Auth-Token': data.token
+            }
+        } else {
+            headers = {
                 'Accept': 'application/json'
-            },
+            };
+        }
+        return {
+            url: getFinalURL(restcall.url, reqObj, data),
+            method: restcall.method,
+            headers: headers,
             json: reqObj || true,
-            timeout: 5000
+            timeout: 20000
         }
     }
 
     //Helper function get data from REST
-    function getData(calltype, reqObj) {
+    function getData(calltype, reqObj, data) {
         var d = Q.defer(),
-            obj = generateReqBody(calltype, reqObj);
+            obj = generateReqBody(calltype, reqObj, data);
         console.log('Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
@@ -68,6 +93,9 @@ module.exports = (function() {
     }
 
     return {
-        getToken: getToken
+        getToken: getToken,
+        getImages: getImages,
+        getServers: getServers,
+        getFlavors: getFlavors
     };
 }());

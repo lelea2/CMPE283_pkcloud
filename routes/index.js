@@ -21,3 +21,20 @@ exports.signin = function(req, res, next) {
     });
 };
 
+exports.dashboard = function(req, res, next) {
+    //console.log(req.body.openStack);
+    var auth = req.body.openStack;
+    var data = {
+        'token': auth.id,
+        'tenant_id': auth.tenant.id
+    };
+    //console.log(data);
+    Q.all([
+        dataSrc.getImages(data),
+        dataSrc.getFlavors(data),
+        dataSrc.getServers(data)
+    ]).then(function(result) {
+        console.log(result);
+        res.render(index);
+    });
+};

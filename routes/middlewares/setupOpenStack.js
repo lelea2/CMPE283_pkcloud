@@ -5,7 +5,8 @@ var Cookies = require('cookies'),
     cookieOption = {
         httpOnly: true,
         path: '/',
-        overwrite: true
+        overwrite: true,
+        expires: 0
     };
 
 module.exports = (function() {
@@ -15,11 +16,16 @@ module.exports = (function() {
             console.log('Setting open stack authentication....');
             dataMassage.getToken(req).then(function(result) {
                 try {
-                    console.log(result);
-                    var access = result.access.token;
-                    var cookies = new Cookies(req, res);
-                    cookies.set('token', access.id, cookieOption);
-                    cookies.set('tenant_id', access.tenant.id);
+                    //console.log(result);
+                    var access = result.access || {};
+                    //console.log(access);
+                    var token = access.token || {};
+                    //console.log(token.id);
+                    //var cookies = new Cookies(req, res);
+                    //cookies.set('token', token.id, cookieOption);
+                    //cookies.set('tenant_id', token.tenant.id, cookieOption);
+                    req.body = req.body || {};
+                    req.body.openStack = token;
                     console.log('done settings....');
                 } catch(ex) {
                     console.log(ex);
