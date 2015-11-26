@@ -67,7 +67,7 @@ module.exports = (function() {
     function getData(calltype, reqObj, data) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj, data);
-        console.log('Request obj=' + JSON.stringify(obj));
+        //console.log('Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             d.resolve(result);

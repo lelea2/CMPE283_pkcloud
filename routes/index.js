@@ -35,6 +35,13 @@ exports.dashboard = function(req, res, next) {
         dataSrc.getServers(data)
     ]).then(function(result) {
         console.log(result);
-        res.render(index);
+        res.render('dashboard', {
+            'images': result[0],
+            'flavors': result[1],
+            'servers': result[2]
+        }, function (err, html) {
+            if (err) { return next(err); }
+            res.send(helper.minifyHTML(html));
+        });
     });
 };
