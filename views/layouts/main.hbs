@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CMPE283_OpenStack</title>
+</head>
+<body>
+<!--Wrap Begin-->
+<div class="wrap" ng-controller="">
+    <!--Top Menu Bar Begin-->
+    <div class="topMenuBar">
+        <ul id="title">
+            <li><h4>Welcome to OpenStack Dashboard</h4></li>
+        </ul>
+        <div class="clear"></div>
+    </div>
+    <!--Main Body Begin-->
+    {{{body}}}
+    <!--Main Body End-->
+    <input type="hidden" name="_csrf" value="{{_csrf}}" />
+    <!--Footer End-->
+    <!--Top Menu Bar End-->
+</div>
+<script src="../js/lib/jquery.js"></script>
+<!--Wrap End-->
+</body>
+</html>

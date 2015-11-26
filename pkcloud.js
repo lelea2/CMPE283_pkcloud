@@ -12,6 +12,7 @@ var express = require('express'),
   csrfCrypto = require('csrf-crypto'),
   expressHbs = require('express-handlebars'),
   routes = require('./routes'),
+  middleware = require('./routes/middlewares/setupOpenStack'),
   http = require('http'),
   https = require('https'),
   path = require('path');
@@ -54,6 +55,8 @@ app.set('view engine', 'hbs');
 /***************************************************/
 /***************** Handle Routing ******************/
 /***************************************************/
+
+app.get('/signin', middleware.authenticateOSClient(), routes.signin);
 
 /**** Handle static files loaded, include caching, gzip ****/
 var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds

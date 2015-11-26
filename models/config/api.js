@@ -3,7 +3,7 @@
 module.exports = {
     "GET_TOKEN": {
         "url": "http://localhost:5000/v2.0/tokens",
-        "method": "GET"
+        "method": "POST"
     },
     "GET_IMAGES": {
         "url": "http://localhost:8774/v2/{tenant_id}/images",
