@@ -110,11 +110,28 @@
 {{#if networks.length}}
     <i>{{networks.length}} servers available</i>
     <button type="button" class="create-network">Create Network</button>
-    <ul class="openstack-networks">
+    <table class="openstack-networks">
+        <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Status</th>
+            <th>Subnet</th>
+            <th>Shared</th>
+            <th>Admin State up</th>
+            <th>Router external</th>
+        </tr>
     {{#each networks}}
-        <li data-id="{{id}}" data-tenant="{{tenant_id}}">{{name}} - Status: {{status}} - type: {{provider:network_type}}</li>
+        <tr data-id="{{id}}">
+            <td>{{name}}</td>
+            <td>{{provider:network_type}}</td>
+            <td>{{status}}</td>
+            <td></td>
+            <td>{{shared}}</td>
+            <td>{{admin_state_up}}</td>
+            <td>{{router:external}}</td>
+        </tr>
     {{/each}}
-    </ul>
+    </table>
 {{else}}
     There's currently no nova flavors configured
     <button type="button" class="create-network">Create Network</button>
