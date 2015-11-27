@@ -1,6 +1,6 @@
 <h2>OpenStack informations: </h2>
-<h3>System limits</h3>
-<ul class="systems-limits">
+<h3>System limits:</h3>
+<ul class="system-limits">
 {{#limits.absolute}}
     <li>maxServerMeta: {{maxServerMeta}}</li>
     <li>maxPersonality: {{maxPersonality}}</li>
@@ -20,9 +20,11 @@
     <li>maxTotalRAMSize: {{maxTotalRAMSize}}</li>
 {{/limits.absolute}}
 </ul>
-<h3>Images</h3>
+<div class="clear"></div>
+
+<h3>Images: </h3>
 {{#if images.length}}
-    {{images.length}} Nova flavors available:
+    <i>{{images.length}} Nova flavors available</i>
     <ul class="openstack-images">
     {{#each images}}
         <li data-id="{{id}}">{{name}} - Status: {{status}} - DataType: {{links.[2].type}} - href: {{links.[0].href}}</li>
@@ -32,10 +34,11 @@
     There's currently no images configured
 {{/if}}
 <button type="button" class="create-image">Create image</button>
+<div class="clear"></div>
 
-<h3>Nova flavors</h3>
+<h3>Nova flavors: </h3>
 {{#if flavors.length}}
-    {{flavors.length}} Nova flavors available:
+    <i>{{flavors.length}} Nova flavors available</i>
     <ul class="openstack-flavors">
     {{#each flavors}}
         <li data-id="{{id}}">{{name}} - Status: {{status}} - RAM: {{ram}} - href: {{links.[0].href}}</li>
@@ -45,23 +48,46 @@
     There's currently no nova flavors configured
 {{/if}}
 <button type="button" class="create-flavor">Create Nova Flavor</button>
+<div class="clear"></div>
 
-<h3>Servers</h3>
+<h3>Servers: </h3>
 {{#if servers.length}}
-    {{servers.length}} servers available:
-    <ul class="openstack-servers">
+    <i>{{servers.length}} servers available</i>
+    <ul class="openstack-servers projectClass">
     {{#each servers}}
-        <li data-id="{{id}}">{{name}} - Status: {{status}} - href: {{links.[0].href}}</li>
+        <li data-id="{{id}}" data-href="{{links.[0].href}}">
+            <div class="projectListBox">
+                <div class="projectListBoxLeftSide">
+                    <div class="projectNameTitle">
+                        <a>{{name}}</a>
+                        <div class="operationPosition">
+                            <select>
+                                <option value="Test">Operations</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="projectStatusInfo">
+                        <ul>
+                            <li><span>Create Date:</span>{{created}}</li>
+                            <li><span>vCPU Hour:</span>890</li>
+                            <li><span>Disk Hour:</span>890</li>
+                        </ul>
+                    </div>
+                </div>
+                <button type="button" class="projectListBoxRightSide projectJoinButton">Teminate Instances</button>
+            </div>
+        </li>
     {{/each}}
     </ul>
 {{else}}
     There's currently no nova flavors configured
 {{/if}}
 <button type="button" class="create-server">Create Server</button>
+<div class="clear"></div>
 
-<h3>Networks</h3>
+<h3>Networks: </h3>
 {{#if networks.length}}
-    {{networks.length}} servers available:
+    <i>{{networks.length}} servers available</i>
     <ul class="openstack-networks">
     {{#each networks}}
         <li data-id="{{id}}" data-tenant="{{tenant_id}}">{{name}} - Status: {{status}} - type: {{provider:network_type}}</li>
@@ -71,4 +97,5 @@
     There's currently no nova flavors configured
 {{/if}}
 <button type="button" class="create-network">Create Network</button>
+<div class="clear"></div>
 

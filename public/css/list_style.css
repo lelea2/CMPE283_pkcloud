@@ -64,8 +64,6 @@
 .projectStatusInfo ul li{
     margin-left: 20px;
     float:left;
-    font-size: 30px;
-
 }
 .projectStatusInfo ul li span{
     margin-right: 10px;
@@ -88,7 +86,7 @@
     padding: 0;
     background-color: #ec6a31;
     font-family: 'Ropa Sans', sans-serif;
-    font-size: 30px;
+    font-size: 20px;
     color: white;
     border-style: none;
     border-width: 0px;
