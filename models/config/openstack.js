@@ -26,5 +26,11 @@ module.exports = {
             "uuid": "fb3037f3-1b62-42f1-90b5-efe7ff9b6658"
             }]
         }
+    },
+    "PKGCLOUD_CLIENT": {
+        "username": "admin",
+        "password": "ab08f97872024503",
+        "url": "http://localhost:5000",
+        "region": "RegionOne"
     }
 }

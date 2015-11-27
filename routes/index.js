@@ -3,6 +3,7 @@
  */
 
 var dataSrc = require('../models/data-massage'),
+    //openStackClient = require('../models/manage-client');
     helper = require('../models/util/helper'),
     Q = require('q');
 
