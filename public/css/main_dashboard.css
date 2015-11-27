@@ -150,3 +150,28 @@ ul{
     color: white;
     background-color:  #d9d9d9;
 }
+
+table {
+    width: 60%;
+    border: 1px solid #ccc;
+    text-align: left;
+    margin: 5px;
+}
+table.openstack-images {
+    width: 90%;
+}
+table tr {
+    border-bottom: 1px solid #ccc;
+    line-height: 28px;
+    background: #ddd;
+}
+table tr:nth-child(odd) {
+    background: #fff;
+}
+table tr th {
+    background: #CDE7F0;
+}
+table tr th,
+table tr td {
+    padding: 5px;
+}

@@ -24,35 +24,56 @@
 
 <h3>Images: </h3>
 {{#if images.length}}
-    <i>{{images.length}} Nova flavors available</i>
-    <ul class="openstack-images">
+    <i>{{images.length}} Images available</i>
+    <button type="button" class="create-image">Create image</button>
+    <table class="openstack-images">
+        <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Id</th>
+            <th>Size</th>
+            <th>Create Date</th>
+        </tr>
     {{#each images}}
-        <li data-id="{{id}}">{{name}} - Status: {{status}} - DataType: {{links.[2].type}} - href: {{links.[0].href}}</li>
+        <tr data-id="{{id}}" data-href="{{links.[0].href}}">
+            <td>{{name}}</td>
+            <td>{{status}}</td>
+            <td>{{id}}</td>
+            <td>{{OS-EXT-IMG-SIZE:size}}</td>
+            <td>{{created}}</td>
+        </tr>
     {{/each}}
-    </ul>
+    </table>
 {{else}}
     There's currently no images configured
 {{/if}}
-<button type="button" class="create-image">Create image</button>
 <div class="clear"></div>
 
 <h3>Nova flavors: </h3>
 {{#if flavors.length}}
     <i>{{flavors.length}} Nova flavors available</i>
-    <ul class="openstack-flavors">
+    <table class="openstack-flavors">
+        <tr>
+            <th>Name</th>
+            <th>RAM</th>
+        </tr>
     {{#each flavors}}
-        <li data-id="{{id}}">{{name}} - Status: {{status}} - RAM: {{ram}} - href: {{links.[0].href}}</li>
+        <tr data-id="{{id}}" data-href="{{links.[0].href}}">
+            <td>{{name}}</td>
+            <td>{{ram}}</td>
+        </tr>
     {{/each}}
-    </ul>
+    </table>
 {{else}}
     There's currently no nova flavors configured
 {{/if}}
-<button type="button" class="create-flavor">Create Nova Flavor</button>
+<!--<button type="button" class="create-flavor">Create Nova Flavor</button>-->
 <div class="clear"></div>
 
 <h3>Servers: </h3>
 {{#if servers.length}}
     <i>{{servers.length}} servers available</i>
+    <a href="/createServer" class="create-server">Create Server</a>
     <ul class="openstack-servers projectClass">
     {{#each servers}}
         <li data-id="{{id}}" data-href="{{links.[0].href}}">
@@ -80,14 +101,15 @@
     {{/each}}
     </ul>
 {{else}}
-    There's currently no nova flavors configured
+    There's currently no servers configured
+    <a href="/createServer" class="create-server">Create Server</a>
 {{/if}}
-<button type="button" class="create-server">Create Server</button>
 <div class="clear"></div>
 
 <h3>Networks: </h3>
 {{#if networks.length}}
     <i>{{networks.length}} servers available</i>
+    <button type="button" class="create-network">Create Network</button>
     <ul class="openstack-networks">
     {{#each networks}}
         <li data-id="{{id}}" data-tenant="{{tenant_id}}">{{name}} - Status: {{status}} - type: {{provider:network_type}}</li>
@@ -95,7 +117,7 @@
     </ul>
 {{else}}
     There's currently no nova flavors configured
+    <button type="button" class="create-network">Create Network</button>
 {{/if}}
-<button type="button" class="create-network">Create Network</button>
 <div class="clear"></div>
 

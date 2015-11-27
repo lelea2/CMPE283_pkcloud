@@ -53,3 +53,7 @@ exports.dashboard = function(req, res, next) {
         });
     });
 };
+
+exports.createServer = function(req, res, next) {
+
+};

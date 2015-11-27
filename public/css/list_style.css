@@ -28,9 +28,10 @@
     overflow: hidden;
 }
 .projectNameTitle a{
-    margin-left: 20px;
-    font-size: 25px;
-    color: #969696;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #006B00;
     letter-spacing: 1px;
 }
 .operationPosition {
@@ -65,9 +66,8 @@
     margin-left: 20px;
     float:left;
 }
-.projectStatusInfo ul li span{
+.projectStatusInfo ul li span {
     margin-right: 10px;
-    font-size: 20px;
 }
 /* Project List Left Side End */
 
