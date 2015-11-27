@@ -31,6 +31,10 @@ module.exports = (function() {
         return getData('GET_NETWORKS', null, data);
     }
 
+    function getLimits(data) {
+        return getData('GET_LIMITS', null, data);
+    }
+
     /**
      * Generate REST url
      * @return {String} url
@@ -101,6 +105,7 @@ module.exports = (function() {
         getImages: getImages,
         getServers: getServers,
         getFlavors: getFlavors,
-        getNetworks: getNetworks
+        getNetworks: getNetworks,
+        getLimits: getLimits
     };
 }());
