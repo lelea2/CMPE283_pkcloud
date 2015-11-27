@@ -54,6 +54,6 @@ exports.dashboard = function(req, res, next) {
     });
 };
 
-exports.createServer = function(req, res, next) {
-
+exports.createInstance = function(req, res, next) {
+    res.render('createInstance');
 };
