@@ -17,13 +17,18 @@ var dataSrc = require('../models/data-massage'),
  */
 exports.signin = function(req, res, next) {
     res.render('signin', {}, function (err, html) {
-        if (err) { console.log(err); return next(err); }
+        console.log("signin:"+JSON.stringify(req));
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
         res.send(helper.minifyHTML(html));
     });
 };
 
 exports.dashboard = function(req, res, next) {
     //console.log(req.body.openStack);
+    console.log("req:"+req);
     var auth = req.body.openStack;
     var data = {
         'token': auth.id,

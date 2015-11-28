@@ -14,9 +14,9 @@ module.exports = (function() {
     function authenticateOSClient() {
         return function (req, res, next) {
             console.log('Setting open stack authentication....');
-            dataMassage.getToken(req).then(function(result) {
+            var res = dataMassage.getToken(req).then(function(result) {
                 try {
-                    //console.log(result);
+                    console.log(result);
                     var access = result.access || {};
                     //console.log(access);
                     var token = access.token || {};
@@ -27,11 +27,16 @@ module.exports = (function() {
                     req.body = req.body || {};
                     req.body.openStack = token;
                     console.log('done settings....');
+                    if(true){
+
+                    }
+                    //res.redirect(302, '/dashboard');
                 } catch(ex) {
                     console.log(ex);
                 }
                 next();
             });
+
         };
     }
 

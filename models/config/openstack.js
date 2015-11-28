@@ -32,5 +32,9 @@ module.exports = {
         "password": "ab08f97872024503",
         "url": "http://localhost:5000",
         "region": "RegionOne"
+    },
+    "SYSTEM_LOGIN":{
+        "username":"user1",
+        "password":"userpassword"
     }
 }
