@@ -44,7 +44,7 @@ module.exports = (function() {
     }
 
     function stopVM(data) {
-        return getData('START_VM', OPENSTACK_CONFIG.START_VM, data);
+        return getData('START_VM', OPENSTACK_CONFIG.STOP_VM, data);
     }
 
     function getServerDiagnostic(data) {
@@ -92,7 +92,7 @@ module.exports = (function() {
     function getData(calltype, reqObj, data) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj, data);
-        //console.log('Request obj=' + JSON.stringify(obj));
+        console.log('Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             d.resolve(result);

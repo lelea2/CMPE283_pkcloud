@@ -38,11 +38,11 @@ module.exports = {
         "method": "POST"
     },
     "START_VM": {
-        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}",
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}/action",
         "method": "POST"
     },
     "STOP_VM": {
-        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}",
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}/action",
         "method": "POST"
     },
     "SERVER_DIAGNOSTIC": {

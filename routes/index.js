@@ -86,12 +86,34 @@ exports.createServer = function(req, res, next) {
     res.status(200).send('OK');
 };
 
-exports.startVM = function(req, res, next) {
+/**
+ * Helper function to get token and tenant_id from post data
+ */
+function getAuthDataOnPost(req) {
+    var data = {
+        'token': req.body.token,
+        'tenant_id': req.body.tenant_id,
+        'server_id': req.body.server_id || ''
+    };
+    return data;
+}
 
+exports.startVM = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.startVM(data).then(function() {
+        res.status(200).send('OK');
+    }, function() {
+        res.status(500).send('FAIL');
+    });
 };
 
 exports.stopVM = function(req, res, next) {
-
+    var data = getAuthDataOnPost(req);
+    dataSrc.stopVM(data).then(function() {
+        res.status(200).send('OK');
+    }, function() {
+        res.status(500).send('FAIL');
+    });
 };
 
 /**
