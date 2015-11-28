@@ -66,8 +66,11 @@ exports.instances = function(req, res, next) {
     res.render('createInstance');
 };
 
+/** The followings are method to create images, server, DB instances... */
 exports.createImages = function(req, res, next) {
 
 };
 
-exports.
+exports.createServers = function(req, res, next) {
+
+};
