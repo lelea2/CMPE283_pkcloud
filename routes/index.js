@@ -13,6 +13,20 @@ var dataSrc = require('../models/data-massage'),
 /************************************************************************/
 
 /**
+ * Helper function to generate auth data
+ */
+function getAuthData(req) {
+    //console.log(req.body.openStack);
+    var auth = req.body.openStack;
+    var data = {
+        'token': auth.id,
+        'tenant_id': auth.tenant.id
+    };
+    //console.log(data);
+    return data;
+}
+
+/**
  * Display /sigin page
  */
 exports.signin = function(req, res, next) {
@@ -23,13 +37,7 @@ exports.signin = function(req, res, next) {
 };
 
 exports.dashboard = function(req, res, next) {
-    //console.log(req.body.openStack);
-    var auth = req.body.openStack;
-    var data = {
-        'token': auth.id,
-        'tenant_id': auth.tenant.id
-    };
-    //console.log(data);
+    var data = getAuthData(req);
     Q.all([
         dataSrc.getImages(data),
         dataSrc.getFlavors(data),
@@ -54,6 +62,12 @@ exports.dashboard = function(req, res, next) {
     });
 };
 
-exports.createInstance = function(req, res, next) {
+exports.instances = function(req, res, next) {
     res.render('createInstance');
 };
+
+exports.createImages = function(req, res, next) {
+
+};
+
+exports.
