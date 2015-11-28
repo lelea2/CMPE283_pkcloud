@@ -48,7 +48,19 @@ module.exports = (function() {
     }
 
     function getServerDiagnostic(data) {
-        return getdata('SERVER_DIAGNOSTIC', null, data);
+        return getData('SERVER_DIAGNOSTIC', null, data);
+    }
+
+    function createImage(data) {
+        return getData('CREATE_IMAGES', OPENSTACK_CONFIG.NEW_IMAGE_1, data);
+    }
+
+    function createServer(data, size) {
+        if (size === 'smallWebsite') {
+            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_SMALL, data);
+        } else {
+            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_LARGE, data);
+        }
     }
 
     /**
@@ -129,6 +141,8 @@ module.exports = (function() {
         getLimits: getLimits,
         getServerDiagnostic: getServerDiagnostic,
         startVM: startVM,
-        stopVM: stopVM
+        stopVM: stopVM,
+        createImage: createImage,
+        createServer: createServer
     };
 }());
