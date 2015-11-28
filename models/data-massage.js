@@ -108,7 +108,8 @@ module.exports = (function() {
         try {
             //console.log(response.statusCode);
             console.log(error);
-            if (!error && response && (response.statusCode === 200 || response.statusCode === 201 || response.statusCode === 202)) {
+            var statusCode = parseInt(response.statusCode, 10);
+            if (!error && response && (statusCode >= 200 && statusCode < 300));
                 return body;
             }
         } catch(ex) { /* istanbul ignore next */
