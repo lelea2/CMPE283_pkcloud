@@ -39,6 +39,7 @@ exports.signin = function(req, res, next) {
     });
 };
 
+//Dashboard view
 exports.dashboard = function(req, res, next) {
     var data = getAuthData(req);
     Q.all([
@@ -56,7 +57,8 @@ exports.dashboard = function(req, res, next) {
             'servers': result[2].servers,
             'networks': result[3].networks,
             'subnets': result[4].subnets,
-            'limits': result[5].limits
+            'limits': result[5].limits,
+            'authData': data
         };
         //console.log(renderData);
         res.render('dashboard', renderData, function (err, html) {
@@ -66,9 +68,15 @@ exports.dashboard = function(req, res, next) {
     });
 };
 
+//Create instance page view
 exports.instances = function(req, res, next) {
-    res.render('createInstance');
+    var data = getAuthData(req);
+    res.render('createInstance', {'authData': data}, function(err, html) {
+        if (err) { return next(err); }
+        res.send(helper.minifyHTML(html));
+    });
 };
+
 /** The followings are method to create images, server, DB instances... */
 exports.createImage = function(req, res, next) {
     res.status(200).send('OK');
