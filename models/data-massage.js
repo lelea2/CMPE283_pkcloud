@@ -31,6 +31,10 @@ module.exports = (function() {
         return getData('GET_NETWORKS', null, data);
     }
 
+    function getSubnets(data) {
+        return getData('GET_SUBNETS', null, data);
+    }
+
     function getLimits(data) {
         return getData('GET_LIMITS', null, data);
     }
@@ -106,6 +110,7 @@ module.exports = (function() {
         getServers: getServers,
         getFlavors: getFlavors,
         getNetworks: getNetworks,
+        getSubnets: getSubnets,
         getLimits: getLimits
     };
 }());

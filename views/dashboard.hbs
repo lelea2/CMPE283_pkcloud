@@ -123,6 +123,7 @@
     <table class="openstack-networks">
         <tr>
             <th>Name</th>
+            <th>Id</th>
             <th>Type</th>
             <th>Status</th>
             <th>Subnet</th>
@@ -133,6 +134,7 @@
     {{#each networks}}
         <tr data-id="{{id}}">
             <td>{{name}}</td>
+            <td>{{id}}</td>
             <td>{{provider:network_type}}</td>
             <td>{{status}}</td>
             <td>{{#subnets}}{{this}},&nbsp;{{/subnets}}</td>
@@ -145,6 +147,28 @@
 {{else}}
     There's currently no nova flavors configured
     <button type="button" class="create-network">Create Network</button>
+{{/if}}
+
+<h3>Subnets information</h3>
+{{#if subnets.length}}
+    <table class="openstack-subnets">
+        <tr>
+            <th>Name</th>
+            <th>Id</th>
+            <th>Gateway IP</th>
+            <th>CIDR</th>
+            <th>DHCP enabled</th>
+        </tr>
+        {{#each subnets}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{id}}</td>
+            <td>{{gateway_ip}}</td>
+            <td>{{cidr}}</td>
+            <td>{{enable_dhcp}}</td>
+        </tr>
+        {{/each}}
+    </table>
 {{/if}}
 <div class="clear"></div>
 

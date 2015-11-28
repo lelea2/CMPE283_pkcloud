@@ -21,6 +21,10 @@ module.exports = {
         "url": "http://localhost:9696/v2.0/networks",
         "method": "GET"
     },
+    "GET_SUBNETS": {
+        "url": "http://localhost:9696/v2.0/subnets",
+        "method": "GET"
+    },
     "GET_LIMITS": {
         "url": "http://localhost:8774/v2/{tenant_id}/limits",
         "method": "GET"
