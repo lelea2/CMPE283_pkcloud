@@ -86,6 +86,13 @@ exports.createServer = function(req, res, next) {
     res.status(200).send('OK');
 };
 
+exports.startVM = function(req, res, next) {
+
+};
+
+exports.stopVM = function(req, res, next) {
+
+};
 
 /**
  * the followings are methods to handle ajax request

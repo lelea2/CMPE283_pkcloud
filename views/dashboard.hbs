@@ -103,9 +103,9 @@
                     </div>
                 </div>
                 {{#equal status "SHUTOFF"}}
-                <button type="button" data-id="{{id}}" class="startVM projectListBoxRightSide projectJoinButton">Start VM</button>
+                <button type="button" data-id="{{id}}" class="startVM projectListBoxRightSide projectJoinButton" ng-click="startVM('{{id}}')">Start VM</button>
                 {{else}}
-                <button type="button" data-id="{{id}}" class="stopVM projectListBoxRightSide projectJoinButton">Stop VM</button>
+                <button type="button" data-id="{{id}}" class="stopVM projectListBoxRightSide projectJoinButton" ng-click="stopVM('{{id}}')">Stop VM</button>
                 {{/equal}}
             </div>
         </li>

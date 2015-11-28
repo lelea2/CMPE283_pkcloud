@@ -62,6 +62,8 @@ app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
 
 app.post('/createImage', routes.createImage);
 app.post('/createServer', routes.createServer);
+app.post('/startVM', routes.startVM);
+app.post('/stopVM', routes.stopVM);
 
 
 //Handle ajax post

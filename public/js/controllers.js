@@ -4,7 +4,7 @@ angular.module('pkcloudApp', [])
 
     $scope.formSigninData = {};
     /** Handle signin */
-    $scope.processSignin = function(){
+    $scope.processSignin = function() {
         alert("dddd");
         console.log("formSignin");
         if (!$scope.formSigninData.name) {
@@ -31,6 +31,14 @@ angular.module('pkcloudApp', [])
         });
     };
 
+    /** Start VM */
+    $scope.startVM = function(id) {
+        alert('startVM: ' + id);
+    };
 
+    /** Stop VM */
+    $scope.stopVM = function(id) {
+        alert('stopVM: ' + id);
+    };
 
 }]);
