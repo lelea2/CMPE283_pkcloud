@@ -1,13 +1,13 @@
 <div class="centerBox">
-    <form class="signin inputBox">
+    <form class="signin inputBox" ng-submit="processSignin()">
         <div class="userNameRow">
             <div class="err hidden">Please provide email address</div>
-            <span>Email:</span><input id="userName" type="email" />
+            <span>Email:</span><input id="userName" type="email" ng-model="formSigninData.name"/>
             <div class="clear"></div>
         </div>
         <div class="passwordRow">
             <div class="err hidden">Please provide password</div>
-            <span>Password:</span><input id="passWord" type="password" />
+            <span>Password:</span><input id="passWord" type="password" ng-model="formSigninData.password"/>
             <div class="clear"></div>
         </div>
         <div class="buttonRow">
