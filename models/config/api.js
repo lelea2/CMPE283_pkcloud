@@ -32,5 +32,17 @@ module.exports = {
     "CREATE_IMAGES": { //Glance
         "url": "http://localhost:9292/v2/images",
         "method": "POST"
+    },
+    "START_VM": {
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}",
+        "method": "POST"
+    },
+    "STOP_VM": {
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}",
+        "method": "POST"
+    },
+    "SERVER_DIAGNOSTIC": {
+        "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}/diagnostics",
+        "method": "GET"
     }
 }

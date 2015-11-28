@@ -67,10 +67,10 @@ exports.instances = function(req, res, next) {
 };
 
 /** The followings are method to create images, server, DB instances... */
-exports.createImages = function(req, res, next) {
-
+exports.createImage = function(req, res, next) {
+    res.status(200).send('OK');
 };
 
-exports.createServers = function(req, res, next) {
-
+exports.createServer = function(req, res, next) {
+    res.status(200).send('OK');
 };

@@ -42,7 +42,7 @@ input{
     font-size: 20px;
 }
 
-#createButton{
+#createButton {
     height: 30px;
     width:300px;
     color: white;
@@ -58,6 +58,7 @@ input{
 #createform {
     width: 500px;
 }
+
 
 #createform li {
     line-height: 50px;
