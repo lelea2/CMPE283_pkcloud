@@ -39,13 +39,26 @@ module.exports = (function() {
         return getData('GET_LIMITS', null, data);
     }
 
+    function startVM(data) {
+        return getData('START_VM', OPENSTACK_CONFIG.START_VM, data);
+    }
+
+    function stopVM(data) {
+        return getData('START_VM', OPENSTACK_CONFIG.START_VM, data);
+    }
+
+    function getServerDiagnostic(data) {
+        return getdata('SERVER_DIAGNOSTIC', null, data);
+    }
+
     /**
      * Generate REST url
      * @return {String} url
      */
     function getFinalURL(url, obj, data) {
-        if (data && data.tenant_id) {
-            return url.replace('{tenant_id}', data.tenant_id);
+        if (data) {
+            return url.replace('{tenant_id}', data.tenant_id || '')
+                      .replace('{server_id}', data.server_id || '')
         } else {
             return url;
         }
@@ -95,7 +108,7 @@ module.exports = (function() {
         try {
             //console.log(response.statusCode);
             console.log(error);
-            if (!error && response && (response.statusCode === 200 || response.statusCode === 201)) {
+            if (!error && response && (response.statusCode === 200 || response.statusCode === 201 || response.statusCode === 202)) {
                 return body;
             }
         } catch(ex) { /* istanbul ignore next */
@@ -104,6 +117,7 @@ module.exports = (function() {
         return {}; //return empty for failure case
     }
 
+    /** Function interface for openstack API */
     return {
         getToken: getToken,
         getImages: getImages,
@@ -111,6 +125,9 @@ module.exports = (function() {
         getFlavors: getFlavors,
         getNetworks: getNetworks,
         getSubnets: getSubnets,
-        getLimits: getLimits
+        getLimits: getLimits,
+        getServerDiagnostic: getServerDiagnostic,
+        startVM: startVM,
+        stopVM: stopVM
     };
 }());

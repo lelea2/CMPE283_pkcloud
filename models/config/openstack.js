@@ -63,8 +63,10 @@ module.exports = {
         "url": "http://localhost:5000",
         "region": "RegionOne"
     },
-    "SYSTEM_LOGIN":{
-        "username":"user1",
-        "password":"userpassword"
+    "START_VM": {
+        "os-start": null
+    },
+    "STOP_VM": {
+        "os-stop": null
     }
 }
