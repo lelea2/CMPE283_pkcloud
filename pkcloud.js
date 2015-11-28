@@ -60,12 +60,12 @@ app.get('/signin', middleware.authenticateOSClient(), routes.signin);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
 app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
 
-app.post('/createImage', routes.createImages);
-app.post('/createServer', routes.createServers);
+app.post('/createImage', routes.createImage);
+app.post('/createServer', routes.createServer);
 
 
 //Handle ajax post
-app.post('/ajax/signin',routes.ajaxLogin);
+app.post('/ajax/signin', routes.ajaxLogin);
 
 /**** Handle static files loaded, include caching, gzip ****/
 var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds

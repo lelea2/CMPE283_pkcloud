@@ -2,6 +2,6 @@
 
 #### Technology used
 * NodeJS
-* MariaDB Client
 * Openstack API
 * NodeJS pkcloud
+* MariaDB Client (TODO)
