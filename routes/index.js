@@ -15,7 +15,7 @@ var dataSrc = require('../models/data-massage'),
 /**
  * Helper function to generate auth data
  */
-function getAuthData(req) {
+/*function getAuthData(req) {
     //console.log(req.body.openStack);
     var auth = req.body.openStack;
     var data = {
@@ -24,14 +24,14 @@ function getAuthData(req) {
     };
     //console.log(data);
     return data;
-}
+}*/
 
 /**
  * Display /sigin page
  */
 exports.signin = function(req, res, next) {
     res.render('signin', {}, function (err, html) {
-        console.log("signin:"+JSON.stringify(req));
+
         if (err) {
             console.log(err);
             return next(err);
@@ -41,7 +41,6 @@ exports.signin = function(req, res, next) {
 };
 
 exports.dashboard = function(req, res, next) {
-<<<<<<< HEAD
     //console.log(req.body.openStack);
     console.log("req:"+req);
     var auth = req.body.openStack;
@@ -50,9 +49,6 @@ exports.dashboard = function(req, res, next) {
         'tenant_id': auth.tenant.id
     };
     //console.log(data);
-=======
-    var data = getAuthData(req);
->>>>>>> 8100af61ca25102a84dd1c4202b7452a49f7f56c
     Q.all([
         dataSrc.getImages(data),
         dataSrc.getFlavors(data),
@@ -80,12 +76,39 @@ exports.dashboard = function(req, res, next) {
 exports.instances = function(req, res, next) {
     res.render('createInstance');
 };
-
 /** The followings are method to create images, server, DB instances... */
 exports.createImages = function(req, res, next) {
 
 };
 
-exports.createServers = function(req, res, next) {
+exports.createServers = function(req, res, next) {};
+
+/**
+ * the followings are methods to handle ajax request
+ */
+exports.ajaxLogin = function(req, res, next) {
+    res.render('signin', {}, function (err, html) {
+        console.log("signin:"+JSON.stringify(req));
+        if (err) {
+            console.log(err);
+            return next(err);
+        }
+        res.send(helper.minifyHTML(html));
+    });
+   /* var name = req.body.name,
+        pwd = req.body.password;
+    console.log("name:"+name);
+    console.log("pwd:"+pwd);
+    res.status(200).json("testing");*/
+/*    dataSrc.logIn(name, pwd).then(function(result) {
+        if (result && result.userId) {
+            user.setUserCookie(req, result.userId);
+            res.status(200).json(result);
+        } else {
+            res.status(500).json(result);
+        }
+    }, function(err) {
+        res.status(500).json(err);
+    });*/
 
 };

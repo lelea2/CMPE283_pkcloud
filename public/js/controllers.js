@@ -1,10 +1,12 @@
 /**
  * Created by Martin on 11/28/2015.
  */
-angular.module('pkcloud', [])
+angular.module('pkcloudApp', [])
     .controller('pkcloudAppController', ['$scope', '$http', function ($scope, $http) {
         $scope.formSigninData = {};
-        $scope.formSignin = function(){
+        $scope.processSignin = function(){
+            alert("dddd");
+            console.log("formSignin");
             if (!$scope.formSigninData.name) {
                 $('.signin .userNameRow .err').removeClass('hidden');
                 return false;
