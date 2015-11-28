@@ -94,6 +94,9 @@
 .projectJoinButton.stopVM {
     background-color: #51CC51;
 }
+.projectJoinButton.rebooting {
+    background-color: #999;
+}
 /* Project List Right Side Ends */
 /*Animation*/
 .projectJoinButton:hover{

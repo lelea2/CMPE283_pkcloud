@@ -37,7 +37,7 @@ angular.module('pkcloudApp', [])
     $scope.startVM = function(id) {
         var data = window.CMPE283_AuthData || {};
         data.server_id = id;
-        console.log(data);
+        //console.log(data);
         $http({
             method  : 'POST',
             url     : '/startVM',
@@ -45,6 +45,8 @@ angular.module('pkcloudApp', [])
             headers : getHeaders()
         }).then(function(data) {
             alert('Start VM success');
+            $('.startVM[data-id="' + id + '"]').addClass('hidden');
+            $('.stopVM[data-id="' + id + '"]').removeClass('hidden');
         }, function(err) {
             alert('Start VM failed');
         });
@@ -61,6 +63,8 @@ angular.module('pkcloudApp', [])
             headers : getHeaders()
         }).then(function(data) {
             alert('Stop VM success');
+            $('.startVM[data-id="' + id + '"]').removeClass('hidden');
+            $('.stopVM[data-id="' + id + '"]').addClass('hidden');
         }, function(err) {
             alert('Stop VM failed');
         });

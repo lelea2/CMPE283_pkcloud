@@ -57,16 +57,16 @@ module.exports = {
         "protected": false,
         "min_ram": 0
     },
-    "PKGCLOUD_CLIENT": {
-        "username": "admin",
-        "password": "ab08f97872024503",
-        "url": "http://localhost:5000",
-        "region": "RegionOne"
-    },
     "START_VM": {
         "os-start": null
     },
     "STOP_VM": {
         "os-stop": null
+    },
+    "PKGCLOUD_CLIENT": {
+        "username": "admin",
+        "password": "ab08f97872024503",
+        "url": "http://localhost:5000",
+        "region": "RegionOne"
     }
 }
