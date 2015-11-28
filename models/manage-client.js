@@ -12,15 +12,19 @@ var pkgcloud = require('pkgcloud'),
 });*/
 
 
-var client = pkgcloud.database.createClient({
-    provider: 'rackspace', // required
+var client = pkgcloud.compute.createClient({
+    provider: 'openstack', // required
     username: PKGCLOUD_CONFIG.username,
     password: PKGCLOUD_CONFIG.password,
     authUrl: PKGCLOUD_CONFIG.url,
     region: PKGCLOUD_CONFIG.region
 });
 
-client.getFlavor(1, function(err, flavor) {
+console.log(client);
+
+client.getImages(function(err, images) {
     console.log(err);
-    console.log(flavor)
+    console.log(images)
 });
+
+console.log('hi');

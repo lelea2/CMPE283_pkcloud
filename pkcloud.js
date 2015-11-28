@@ -58,7 +58,11 @@ app.set('view engine', 'hbs');
 
 app.get('/signin', middleware.authenticateOSClient(), routes.signin);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
-app.get('/createInstance', middleware.authenticateOSClient(), routes.createInstance);
+app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
+
+app.post('/createImage', routes.createImage);
+app.post('/createServer', routes.createServer);
+
 
 /**** Handle static files loaded, include caching, gzip ****/
 var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds

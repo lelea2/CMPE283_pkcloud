@@ -1,0 +1,146 @@
+{
+    "access": {
+        "token": {
+            "issued_at": "2015-11-28T02:32:47.387593",
+            "expires": "2015-11-28T03:32:47Z",
+            "id": "MIINQAYJKoZIhvcNAQcCoIINMTCCDS0CAQExCTAHBgUrDgMCGjCCC5YGCSqGSIb3DQEHAaCCC4cEgguDeyJhY2Nlc3MiOiB7InRva2VuIjogeyJpc3N1ZWRfYXQiOiAiMjAxNS0xMS0yOFQwMjozMjo0Ny4zODc1OTMiLCAiZXhwaXJlcyI6ICIyMDE1LTExLTI4VDAzOjMyOjQ3WiIsICJpZCI6ICJwbGFjZWhvbGRlciIsICJ0ZW5hbnQiOiB7ImRlc2NyaXB0aW9uIjogImFkbWluIHRlbmFudCIsICJlbmFibGVkIjogdHJ1ZSwgImlkIjogIjM4ODhmOGZmN2Q3YzRjNGE4MDViYTJlNWI5ODQxNmViIiwgIm5hbWUiOiAiYWRtaW4ifX0sICJzZXJ2aWNlQ2F0YWxvZyI6IFt7ImVuZHBvaW50cyI6IFt7ImFkbWluVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6ODc3NC92Mi8zODg4ZjhmZjdkN2M0YzRhODA1YmEyZTViOTg0MTZlYiIsICJyZWdpb24iOiAiUmVnaW9uT25lIiwgImludGVybmFsVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6ODc3NC92Mi8zODg4ZjhmZjdkN2M0YzRhODA1YmEyZTViOTg0MTZlYiIsICJpZCI6ICI1ODIzZTA1NWM1MjQ0YmIyYTFjYzAwNWJlYzBlMzU0NiIsICJwdWJsaWNVUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo4Nzc0L3YyLzM4ODhmOGZmN2Q3YzRjNGE4MDViYTJlNWI5ODQxNmViIn1dLCAiZW5kcG9pbnRzX2xpbmtzIjogW10sICJ0eXBlIjogImNvbXB1dGUiLCAibmFtZSI6ICJub3ZhIn0sIHsiZW5kcG9pbnRzIjogW3siYWRtaW5VUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo5Njk2LyIsICJyZWdpb24iOiAiUmVnaW9uT25lIiwgImludGVybmFsVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6OTY5Ni8iLCAiaWQiOiAiMTAzNDA2NzkzNzIzNGQ1MGI2OGIzYTQ2MDk3N2M3MzgiLCAicHVibGljVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6OTY5Ni8ifV0sICJlbmRwb2ludHNfbGlua3MiOiBbXSwgInR5cGUiOiAibmV0d29yayIsICJuYW1lIjogIm5ldXRyb24ifSwgeyJlbmRwb2ludHMiOiBbeyJhZG1pblVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzYvdjIvMzg4OGY4ZmY3ZDdjNGM0YTgwNWJhMmU1Yjk4NDE2ZWIiLCAicmVnaW9uIjogIlJlZ2lvbk9uZSIsICJpbnRlcm5hbFVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzYvdjIvMzg4OGY4ZmY3ZDdjNGM0YTgwNWJhMmU1Yjk4NDE2ZWIiLCAiaWQiOiAiM2EzMmIwNjE4NWZlNDJlMmE2ZTcyOTRkZTM1MDdkNDAiLCAicHVibGljVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6ODc3Ni92Mi8zODg4ZjhmZjdkN2M0YzRhODA1YmEyZTViOTg0MTZlYiJ9XSwgImVuZHBvaW50c19saW5rcyI6IFtdLCAidHlwZSI6ICJ2b2x1bWV2MiIsICJuYW1lIjogImNpbmRlcnYyIn0sIHsiZW5kcG9pbnRzIjogW3siYWRtaW5VUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo4Nzc0L3YzIiwgInJlZ2lvbiI6ICJSZWdpb25PbmUiLCAiaW50ZXJuYWxVUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo4Nzc0L3YzIiwgImlkIjogIjRkZTc2MDBhZmQ5NzRkNmU4OWQzOGVlYTFkZmZlNTViIiwgInB1YmxpY1VSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzQvdjMifV0sICJlbmRwb2ludHNfbGlua3MiOiBbXSwgInR5cGUiOiAiY29tcHV0ZXYzIiwgIm5hbWUiOiAibm92YXYzIn0sIHsiZW5kcG9pbnRzIjogW3siYWRtaW5VUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo5MjkyIiwgInJlZ2lvbiI6ICJSZWdpb25PbmUiLCAiaW50ZXJuYWxVUkwiOiAiaHR0cDovLzEwLjAuMi4xNTo5MjkyIiwgImlkIjogIjBhYzQ4ZWFhMjA0MDQ3Njk5M2E5MmZmZjliZTQ4YzFlIiwgInB1YmxpY1VSTCI6ICJodHRwOi8vMTAuMC4yLjE1OjkyOTIifV0sICJlbmRwb2ludHNfbGlua3MiOiBbXSwgInR5cGUiOiAiaW1hZ2UiLCAibmFtZSI6ICJnbGFuY2UifSwgeyJlbmRwb2ludHMiOiBbeyJhZG1pblVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzYvdjEvMzg4OGY4ZmY3ZDdjNGM0YTgwNWJhMmU1Yjk4NDE2ZWIiLCAicmVnaW9uIjogIlJlZ2lvbk9uZSIsICJpbnRlcm5hbFVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzYvdjEvMzg4OGY4ZmY3ZDdjNGM0YTgwNWJhMmU1Yjk4NDE2ZWIiLCAiaWQiOiAiMjU1ZWU0YjUyMmNmNGRmZGJjZWIwMjg5OGE4OTRhZDAiLCAicHVibGljVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6ODc3Ni92MS8zODg4ZjhmZjdkN2M0YzRhODA1YmEyZTViOTg0MTZlYiJ9XSwgImVuZHBvaW50c19saW5rcyI6IFtdLCAidHlwZSI6ICJ2b2x1bWUiLCAibmFtZSI6ICJjaW5kZXIifSwgeyJlbmRwb2ludHMiOiBbeyJhZG1pblVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzMvc2VydmljZXMvQWRtaW4iLCAicmVnaW9uIjogIlJlZ2lvbk9uZSIsICJpbnRlcm5hbFVSTCI6ICJodHRwOi8vMTAuMC4yLjE1Ojg3NzMvc2VydmljZXMvQ2xvdWQiLCAiaWQiOiAiMjk4ZjgzNjhlZWU5NDZmYzllYzRiZTc1Nzk4NTA4NGYiLCAicHVibGljVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6ODc3My9zZXJ2aWNlcy9DbG91ZCJ9XSwgImVuZHBvaW50c19saW5rcyI6IFtdLCAidHlwZSI6ICJlYzIiLCAibmFtZSI6ICJub3ZhX2VjMiJ9LCB7ImVuZHBvaW50cyI6IFt7ImFkbWluVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6MzUzNTcvdjIuMCIsICJyZWdpb24iOiAiUmVnaW9uT25lIiwgImludGVybmFsVVJMIjogImh0dHA6Ly8xMC4wLjIuMTU6NTAwMC92Mi4wIiwgImlkIjogIjI1YWVkNzI3MmNkODQ3OWJhYjBhOWRlOWY2YWM2OTNkIiwgInB1YmxpY1VSTCI6ICJodHRwOi8vMTAuMC4yLjE1OjUwMDAvdjIuMCJ9XSwgImVuZHBvaW50c19saW5rcyI6IFtdLCAidHlwZSI6ICJpZGVudGl0eSIsICJuYW1lIjogImtleXN0b25lIn1dLCAidXNlciI6IHsidXNlcm5hbWUiOiAiYWRtaW4iLCAicm9sZXNfbGlua3MiOiBbXSwgImlkIjogImQyNWVhZGFjM2FkOTQxZjFiMDA1YmZmNDA4Y2EwM2Y1IiwgInJvbGVzIjogW3sibmFtZSI6ICJhZG1pbiJ9XSwgIm5hbWUiOiAiYWRtaW4ifSwgIm1ldGFkYXRhIjogeyJpc19hZG1pbiI6IDAsICJyb2xlcyI6IFsiN2Q5NmM0N2ZiYTQ4NDQ1ODg3NDBjZmVlYjBkMGM1NTEiXX19fTGCAYEwggF9AgEBMFwwVzELMAkGA1UEBhMCVVMxDjAMBgNVBAgMBVVuc2V0MQ4wDAYDVQQHDAVVbnNldDEOMAwGA1UECgwFVW5zZXQxGDAWBgNVBAMMD3d3dy5leGFtcGxlLmNvbQIBATAHBgUrDgMCGjANBgkqhkiG9w0BAQEFAASCAQBJ1trevh2xSFRllGyw0VcHtjYwkTsygK2KAXsZtAYM51Y+IGdQ4whSJnu6loHj7f3gl6Y4D1xd5ayjAdvCokxir7yRR96z-fTW-bH6VGttaVbftcYPHjweZ2sqiVLq2EoOsjAEDduq6teE1xKIG2WzAcozfdtjMdukt4uSyMEkAvCF6odlT4XAlWbdHmCllEwV92wR7Tg9P79hJQ5uTgjXsuVRfyUOqxO790uX-cecAF38KFswtJ0GSlBYKIx+Ljot2JQ1M6dXlyK0DWJIswRqjgigizrL8VIjGFVMh2leVjMoaYdRuPs0pso5hmn5bwAidtF3SGVBTFeh9PvmtdEW",
+            "tenant": {
+                "description": "admin tenant",
+                "enabled": true,
+                "id": "3888f8ff7d7c4c4a805ba2e5b98416eb",
+                "name": "admin"
+            }
+        },
+        "serviceCatalog": [
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "id": "5823e055c5244bb2a1cc005bec0e3546",
+                        "publicURL": "http://10.0.2.15:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "compute",
+                "name": "nova"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:9696/",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:9696/",
+                        "id": "1034067937234d50b68b3a460977c738",
+                        "publicURL": "http://10.0.2.15:9696/"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "network",
+                "name": "neutron"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:8776/v2/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:8776/v2/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "id": "3a32b06185fe42e2a6e7294de3507d40",
+                        "publicURL": "http://10.0.2.15:8776/v2/3888f8ff7d7c4c4a805ba2e5b98416eb"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "volumev2",
+                "name": "cinderv2"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:8774/v3",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:8774/v3",
+                        "id": "4de7600afd974d6e89d38eea1dffe55b",
+                        "publicURL": "http://10.0.2.15:8774/v3"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "computev3",
+                "name": "novav3"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:9292",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:9292",
+                        "id": "0ac48eaa2040476993a92fff9be48c1e",
+                        "publicURL": "http://10.0.2.15:9292"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "image",
+                "name": "glance"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:8776/v1/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:8776/v1/3888f8ff7d7c4c4a805ba2e5b98416eb",
+                        "id": "255ee4b522cf4dfdbceb02898a894ad0",
+                        "publicURL": "http://10.0.2.15:8776/v1/3888f8ff7d7c4c4a805ba2e5b98416eb"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "volume",
+                "name": "cinder"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:8773/services/Admin",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:8773/services/Cloud",
+                        "id": "298f8368eee946fc9ec4be757985084f",
+                        "publicURL": "http://10.0.2.15:8773/services/Cloud"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "ec2",
+                "name": "nova_ec2"
+            },
+            {
+                "endpoints": [
+                    {
+                        "adminURL": "http://10.0.2.15:35357/v2.0",
+                        "region": "RegionOne",
+                        "internalURL": "http://10.0.2.15:5000/v2.0",
+                        "id": "25aed7272cd8479bab0a9de9f6ac693d",
+                        "publicURL": "http://10.0.2.15:5000/v2.0"
+                    }
+                ],
+                "endpoints_links": [],
+                "type": "identity",
+                "name": "keystone"
+            }
+        ],
+        "user": {
+            "username": "admin",
+            "roles_links": [],
+            "id": "d25eadac3ad941f1b005bff408ca03f5",
+            "roles": [
+                {
+                    "name": "admin"
+                }
+            ],
+            "name": "admin"
+        },
+        "metadata": {
+            "is_admin": 0,
+            "roles": [
+                "7d96c47fba4844588740cfeeb0d0c551"
+            ]
+        }
+    }
+}

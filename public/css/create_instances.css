@@ -55,8 +55,13 @@ input{
     border-radius: 5px;
     cursor:pointer;
 }
-#createform{
+#createform {
     width: 500px;
+}
+
+#createform li {
+    line-height: 50px;
+    display: block;
 }
 
 /*Animation*/
