@@ -16,7 +16,7 @@ module.exports = (function() {
             console.log('Setting open stack authentication....');
             var res = dataMassage.getToken(req).then(function(result) {
                 try {
-                    console.log(result);
+                    //console.log(result);
                     var access = result.access || {};
                     //console.log(access);
                     var token = access.token || {};
