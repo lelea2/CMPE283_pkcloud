@@ -59,6 +59,8 @@ app.set('view engine', 'hbs');
 app.get('/signin', middleware.authenticateOSClient(), routes.signin);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
 app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
+app.get('/serverDetails', middleware.authenticateOSClient(), routes.serverDetails);
+
 
 app.post('/createImage', routes.createImage);
 app.post('/createServer', routes.createServer);

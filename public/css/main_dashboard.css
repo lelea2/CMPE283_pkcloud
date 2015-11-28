@@ -178,7 +178,7 @@ table tr th,
 table tr td {
     padding: 5px;
 }
-a {
+.projectStatusInfo a {
     color: #3333FF;
     text-decoration: underline;
 }

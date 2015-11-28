@@ -77,6 +77,11 @@ exports.instances = function(req, res, next) {
     });
 };
 
+//Create view for server detail
+exports.serverDetails = function(req, res, next) {
+    var data = getAuthData(req);
+};
+
 /** The followings are method to create images, server, DB instances... */
 exports.createImage = function(req, res, next) {
     res.status(200).send('OK');
