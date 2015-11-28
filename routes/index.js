@@ -80,6 +80,10 @@ exports.instances = function(req, res, next) {
 //Create view for server detail
 exports.serverDetails = function(req, res, next) {
     var data = getAuthData(req);
+    res.render('serverDetails', {'authData': data}, function(err, html) {
+        if (err) { return next(err); }
+        res.send(helper.minifyHTML(html));
+    });
 };
 
 /** The followings are method to create images, server, DB instances... */
