@@ -179,3 +179,8 @@ a {
     color: #3333FF;
     text-decoration: underline;
 }
+hr {
+    width: 90%;
+    margin: 10px 0;
+    border-top: 2px solid #ccc;
+}
