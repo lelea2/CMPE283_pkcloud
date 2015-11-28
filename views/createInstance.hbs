@@ -1,1 +1,35 @@
+<link rel="stylesheet" type="text/css" href="../css/create_instances.css">
 <h2>Create Instances: </h2>
+<div class="contentPosition">
+    <ul>
+        <li>
+            <form id="createform">
+                <ul>
+                    <li><span>Instance Name</span><input id="instanceName" type="text" required/></li>
+                        <li>
+                            <span>vCPU</span>
+                            <select id="vCPU" required>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>Memory</span>
+                            <select id="memory" required>
+                                <option value="1">1GB</option>
+                                <option value="2">2GB</option>
+                            </select>
+                        </li>
+                        <li>
+                            <span>Disk</span>
+                            <select id="disk" required>
+                                <option value="1">10GB</option>
+                                <option value="2">20GB</option>
+                            </select>
+                        </li>
+                        <li><button id="createButton" type="Submit">Create Instance</button></li>
+                </ul>
+            </form>
+        </li>
+    </ul>
+</div>
