@@ -67,6 +67,7 @@ app.post('/createImage', routes.createImage);
 app.post('/createServer', routes.createServer);
 app.post('/startVM', routes.startVM);
 app.post('/stopVM', routes.stopVM);
+app.post('/deleteVM', routes.deleteVM);
 
 
 //Handle ajax post

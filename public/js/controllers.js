@@ -114,4 +114,21 @@ angular.module('pkcloudApp', [])
         });
     };
 
+    /** Delete server */
+    $scope.deleteServer = function(id) {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.server_id = id;
+        $http({
+            method  : 'POST',
+            url     : '/deleteVM',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Delete VM success');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Stop VM failed');
+        });
+    };
+
 }]);

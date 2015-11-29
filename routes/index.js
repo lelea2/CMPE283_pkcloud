@@ -145,6 +145,15 @@ exports.stopVM = function(req, res, next) {
     });
 };
 
+exports.deleteVM = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.deleteVM(data).then(function() {
+        res.status(200).send('OK');
+    }, function() {
+        res.status(500).send('FAIL');
+    });
+};
+
 /**
  * the followings are methods to handle ajax request
  */

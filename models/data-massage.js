@@ -47,6 +47,10 @@ module.exports = (function() {
         return getData('START_VM', OPENSTACK_CONFIG.STOP_VM, data);
     }
 
+    function deleteVM(data) {
+        return getData('DELETE_SERVER', null, data);
+    }
+
     function getServerDiagnostic(data) {
         return getData('SERVER_DIAGNOSTIC', null, data);
     }
@@ -143,6 +147,7 @@ module.exports = (function() {
         getServerDiagnostic: getServerDiagnostic,
         startVM: startVM,
         stopVM: stopVM,
+        deleteVM: deleteVM,
         createImage: createImage,
         createServer: createServer
     };
