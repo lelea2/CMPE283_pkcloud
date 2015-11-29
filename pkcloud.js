@@ -60,7 +60,7 @@ app.get('/signin', routes.signin);
 app.get('/signout', middleware.authenticateOSClient(), routes.signout);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
 app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
-app.get('/serverDetails', middleware.authenticateOSClient(), routes.serverDetails);
+app.get('/serverDetail', middleware.authenticateOSClient(), routes.serverDetails);
 
 
 app.post('/createImage', routes.createImage);

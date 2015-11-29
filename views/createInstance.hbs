@@ -5,27 +5,24 @@
         <li>
             <form id="createform" ng-submit="createServer()">
                 <ul>
-                    <li><span>Instance Name</span><input id="instanceName" type="text" required /></li>
+                    <li><span>Instance Name</span><input ng-model="formCreate.name" id="instanceName" type="text" required /></li>
                     <li>
-                        <span>vCPU</span>
-                        <select id="vCPU" required>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                        </select>
+                        <input ng-model="formCreate.size" id="small-website" type="radio" name="site" value="small" checked>
+                        <label for="small-website">
+                            <p>Small Website</p>
+                            <p>vCPU: 1</p>
+                            <p>RAM: 2048</p>
+                            <p>Disk Size: 20GB</p>
+                        </label>
                     </li>
                     <li>
-                        <span>Memory</span>
-                        <select id="memory" required>
-                            <option value="1">1GB</option>
-                            <option value="2">2GB</option>
-                        </select>
-                    </li>
-                    <li>
-                        <span>Disk</span>
-                        <select id="disk" required>
-                            <option value="1">10GB</option>
-                            <option value="2">20GB</option>
-                        </select>
+                        <input ng-model="formCreate.size" type="radio" name="site" value="large">
+                        <label for="small-website">
+                            <p>Large Website</p>
+                            <p>vCPU: 8</p>
+                            <p>RAM: 16384</p>
+                            <p>Disk Size: 160GB</p>
+                        </label>
                     </li>
                     <li><button id="createButton" type="Submit">Create Instance</button></li>
                 </ul>

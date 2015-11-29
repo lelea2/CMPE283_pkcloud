@@ -33,13 +33,24 @@ select{
     font-size: 20px;
     color: #969696;
 }
-input{
+input {
     float:right;
     width: 300px;
     height: 30px;
     border-style: none;
     font-family: 'Ropa Sans', sans-serif;
     font-size: 20px;
+}
+input[type="radio"] {
+    float: left;
+    width: 30px;
+    font-size: 14px;
+}
+label {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 10px;
+    vertical-align: middle;
 }
 
 #createButton {

@@ -109,13 +109,13 @@
                 <button type="button" data-id="{{id}}" class="startVM projectListBoxRightSide projectJoinButton" ng-click="startVM('{{id}}')">Start VM</button>
                 <button type="button" data-id="{{id}}" class="stopVM hidden projectListBoxRightSide projectJoinButton" ng-click="stopVM('{{id}}')">Stop VM</button>
                 {{else}}
-                    {{#equal ../status "REBOOT"}}
-                    <button type="button" data-id="{{id}}" class="rebooting projectListBoxRightSide projectJoinButton">Rebooting...</button>
-                    <button type="button" data-id="{{id}}" class="startVM hidden projectListBoxRightSide projectJoinButton" ng-click="startVM('{{id}}')">Start VM</button>
-                    <button type="button" data-id="{{id}}" class="stopVM hidden projectListBoxRightSide projectJoinButton" ng-click="stopVM('{{id}}')">Stop VM</button>
-                    {{else}}
+                    {{#equal ../status "ACTIVE"}}
                     <button type="button" data-id="{{id}}" class="startVM hidden projectListBoxRightSide projectJoinButton" ng-click="startVM('{{id}}')">Start VM</button>
                     <button type="button" data-id="{{id}}" class="stopVM projectListBoxRightSide projectJoinButton" ng-click="stopVM('{{id}}')">Stop VM</button>
+                    {{else}}
+                    <button type="button" data-id="{{id}}" class="rebooting projectListBoxRightSide projectJoinButton">{{../status}}...</button>
+                    <button type="button" data-id="{{id}}" class="startVM hidden projectListBoxRightSide projectJoinButton" ng-click="startVM('{{id}}')">Start VM</button>
+                    <button type="button" data-id="{{id}}" class="stopVM hidden projectListBoxRightSide projectJoinButton" ng-click="stopVM('{{id}}')">Stop VM</button>
                     {{/equal}}
                 {{/equal}}
             </div>

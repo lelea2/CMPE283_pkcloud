@@ -58,11 +58,13 @@ module.exports = (function() {
     }
 
     function createServer(data, size) {
-        if (size === 'smallWebsite') {
-            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_SMALL, data);
-        } else {
-            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_LARGE, data);
+        var serverData = OPENSTACK_CONFIG.NEW_SERVER_SMALL;
+        serverData.server.name = data.servername;
+        if (size === 'large') {
+            serverData = OPENSTACK_CONFIG.NEW_SERVER_LARGE;
         }
+        console.log(serverData);
+        return getData('CREATE_SERVER', serverData, data);
     }
 
     /**

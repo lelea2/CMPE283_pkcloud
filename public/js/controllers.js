@@ -4,6 +4,10 @@ angular.module('pkcloudApp', [])
 
     $scope.formSigninData = {};
 
+    $scope.formCreate = { //default for small website
+        size: 'small'
+    };
+
     function getHeaders() {
         return {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -92,8 +96,22 @@ angular.module('pkcloudApp', [])
 
     /** Create servers */
     $scope.createServer = function() {
-        var data = angular.copy({}, window.CMPE283_AuthData || {});
-
+        //alert($scope.formCreate.size);
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.size = $scope.formCreate.size;
+        data.servername = $scope.formCreate.name;
+        alert('Creating server "' + $scope.formCreate.name + '" as ' + $scope.formCreate.size + ' instance');
+        $http({
+            method  : 'POST',
+            url     : '/createServer',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create server successfully');
+            window.location = '/serverDetail'; //redirect back to dashboard
+        }, function(err) {
+            alert('Create image failed');
+        });
     };
 
 }]);

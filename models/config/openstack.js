@@ -2,21 +2,22 @@
 var TestInfo ={
     Martin_Pwd:"secrete",
     Khanh_Pwd:"ab08f97872024503"
- };
+};
+
 module.exports = {
-    "AUTHENTICATION": { //Admin data fro open stack login
+    "AUTHENTICATION": { //Admin data for open stack login
         "auth": {
             "tenantName":"admin",
             "passwordCredentials": {
                 "username":"admin",
-                "password":TestInfo.Martin_Pwd
+                "password": TestInfo.Khanh_Pwd
             }
         }
     },
-    "NEW_SERVER_SMALL": {
+    "NEW_SERVER_SMALL": { //Create small server
         "server": {
             "name": "Server 1",
-            "imageRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/images/c71ca2cb-f85c-4f19-b1ae-54859c66c13a",
+            "imageRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/images/8c684853-ba93-454b-821d-12a5d7b1b328",
             "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/2",
             "metadata": {
                 "My Server Name": "Small Website"
@@ -30,11 +31,11 @@ module.exports = {
             }]
         }
     },
-    "NEW_SERVER_LARGE": {
+    "NEW_SERVER_LARGE": { //Create large server
         "server": {
             "name": "Server 1",
-            "imageRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/images/c71ca2cb-f85c-4f19-b1ae-54859c66c13a",
-            "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/3",
+            "imageRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/images/8c684853-ba93-454b-821d-12a5d7b1b328",
+            "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/5",
             "metadata": {
                 "My Server Name": "Large Website"
             },
@@ -43,7 +44,7 @@ module.exports = {
                 "contents": "Big website"
             }],
             "networks": [{
-                "uuid": "fb3037f3-1b62-42f1-90b5-efe7ff9b6658"
+                "uuid": "5138d56c-1b6a-4981-b5a7-3072818963e0"
             }]
         }
     },

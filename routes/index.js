@@ -5,9 +5,9 @@
 var dataSrc = require('../models/data-massage'),
     //openStackClient = require('../models/manage-client');
     helper = require('../models/util/helper'),
-    Q = require('q');
-var user = require('../models/config/user');
-//console.log(helper);
+    Q = require('q'),
+    user = require('./util/user');
+
 /************************************************************************/
 /**                            Handle Routing                          **/
 /************************************************************************/
@@ -46,6 +46,7 @@ exports.signout = function(req, res, next) {
 //Dashboard view
 exports.dashboard = function(req, res, next) {
     var data = getAuthData(req);
+    console.log(data);
     Q.all([
         dataSrc.getImages(data),
         dataSrc.getFlavors(data),
@@ -75,6 +76,7 @@ exports.dashboard = function(req, res, next) {
 //Create instance page view
 exports.instances = function(req, res, next) {
     var data = getAuthData(req);
+    console.log(data);
     res.render('createInstance', {'authData': data}, function(err, html) {
         if (err) { return next(err); }
         res.send(helper.minifyHTML(html));
@@ -93,15 +95,21 @@ exports.serverDetails = function(req, res, next) {
 /** The followings are method to create images, server, DB instances... */
 exports.createImage = function(req, res, next) {
     var data = getAuthDataOnPost(req);
-    dataSrc.createImage(data).then(function() {
+    dataSrc.createImage(data).then(function(result) {
         res.status(200).send('OK');
-    }, function() {
+    }, function(err) {
         res.status(500).send('FAIL');
     });
 };
 
 exports.createServer = function(req, res, next) {
-    res.status(200).send('OK');
+    var data = getAuthDataOnPost(req),
+        size = data.size;
+    dataSrc.createServer(data, size).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
 };
 
 /**
@@ -112,7 +120,9 @@ function getAuthDataOnPost(req) {
         'token': req.body.token,
         'tenant_id': req.body.tenant_id,
         'server_id': req.body.server_id || '',
-        'imagename': req.body.image || 'Default image name'
+        'imagename': req.body.image || 'Default image name',
+        'size': req.body.size || 'small',
+        'servername': req.body.servername || 'My new server'
     };
     return data;
 }
