@@ -6,7 +6,7 @@ var dataSrc = require('../models/data-massage'),
     //openStackClient = require('../models/manage-client');
     helper = require('../models/util/helper'),
     Q = require('q');
-
+var user = require('../models/config/user');
 //console.log(helper);
 /************************************************************************/
 /**                            Handle Routing                          **/
@@ -30,7 +30,7 @@ function getAuthData(req) {
  * Display /sigin page
  */
 exports.signin = function(req, res, next) {
-    res.render('signin', {}, function (err, html) {
+    res.render('signin', { title: 'Signin', layout: 'basic' }, function (err, html) {
         if (err) {
             console.log(err);
             return next(err);
@@ -129,14 +129,29 @@ exports.stopVM = function(req, res, next) {
  * the followings are methods to handle ajax request
  */
 exports.ajaxLogin = function(req, res, next) {
-    res.render('signin', {}, function (err, html) {
+    //if browser has cookies already, just redirect to dashboard
+ /*   var userId = user.getUserId(req);
+    console.log("userid:"+userId);
+    if(userId === ""){
+
+    }*/
+    //check certification
+    console.log("ajaxLoginajaxLoginajaxLoginajaxLoginajaxLoginajaxLogin");
+    var name = req.body.name,
+        pwd = req.body.password;
+    console.log("name:"+name);
+    console.log("pwd:"+pwd);
+    //if pass store in cookies and redirect to dashboard
+    res.render('dashboard', {}, function (err, html) {
         console.log("signin:"+JSON.stringify(req));
-        if (err) {
-            console.log(err);
-            return next(err);
-        }
+        if (err) { console.log(err);return next(err);}
         res.send(helper.minifyHTML(html));
     });
+    //did not pass redirect back to signin page
+
+    //check cookies
+
+
    /* var name = req.body.name,
         pwd = req.body.password;
     console.log("name:"+name);
