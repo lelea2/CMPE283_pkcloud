@@ -122,14 +122,11 @@ module.exports = (function() {
      */
     function getReturnObj(error, response, body) {
         try {
-            //console.log(response.statusCode);
-            //console.log(error);
             var statusCode = parseInt(response.statusCode, 10);
             if (!error && response && (statusCode >= 200 && statusCode < 300)) {
                 return body;
             }
-        } catch(ex) { /* istanbul ignore next */
-            console.log(ex);
+        } catch(ex) {
         }
         return {}; //return empty for failure case
     }
