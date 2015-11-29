@@ -57,6 +57,29 @@ module.exports = {
         "protected": false,
         "min_ram": 0
     },
+    "NEW_DB": { //New DB service
+        "instance": {
+            "databases": [{
+                "character_set": "utf8",
+                "collate": "utf8_general_ci",
+                "name": "sampledb"
+            }, {
+                "name": "nextround"
+            }],
+            "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/1",
+            "name": "json_rack_instance",
+            "users": [{
+                "databases": [{
+                    "name": "sampledb"
+                }],
+                "name": "cmpe283",
+                "password": "testing"
+            }],
+            "volume": {
+                "size": 2
+            }
+        }
+    },
     "START_VM": {
         "os-start": null
     },
