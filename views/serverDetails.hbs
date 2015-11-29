@@ -1,1 +1,8 @@
 <h2>Instances Details: </h2>
+{{#each info}}
+    <h4>{{name}}</h4>
+    <p>id: {{id}}</p>
+    <p>{{json diagnostic}}</p>
+
+{{/each}}
+{{> authDataObj }}

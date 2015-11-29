@@ -96,8 +96,11 @@ exports.serverDetails = function(req, res, next) {
             }
         }
         Q.all(objFunc).then(function(result) {
-            console.log(result);
-            res.render('serverDetails', {'authData': data, 'diagnostic': result}, function(err, html) {
+            //console.log(result);
+            for (var j = 0; j < serverIds.length; j++) {
+                serverIds[j].diagnostic = result[j];
+            }
+            res.render('serverDetails', {'authData': data, 'info': serverIds}, function(err, html) {
                 if (err) { return next(err); }
                 res.send(helper.minifyHTML(html));
             });
