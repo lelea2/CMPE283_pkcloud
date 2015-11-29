@@ -178,7 +178,7 @@ table tr th,
 table tr td {
     padding: 5px;
 }
-.projectStatusInfo a {
+.pageTitlePosition a {
     color: #3333FF;
     text-decoration: underline;
 }
@@ -186,4 +186,24 @@ hr {
     width: 90%;
     margin: 10px 0;
     border-top: 2px solid #ccc;
+}
+
+form.createImage input {
+    padding: 5px;
+    line-height: 30px;
+    height: 30px;
+    width: 200px;
+    border: 1px solid #ccc;
+}
+
+form.createImage button {
+    height: 40px;
+    color: #fff;
+    line-height: 40px;
+    text-align: center;
+    background: #D1D1FF;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    vertical-align: middle
 }
