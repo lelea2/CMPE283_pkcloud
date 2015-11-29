@@ -181,6 +181,7 @@ table tr td {
 .pageTitlePosition a {
     color: #3333FF;
     text-decoration: underline;
+    cursor: pointer;
 }
 hr {
     width: 90%;
