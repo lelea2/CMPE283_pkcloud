@@ -27,7 +27,10 @@
 <h3 id="images">Images: </h3>
 {{#if images.length}}
     <i>{{images.length}} Images available</i>
-    <button type="button" class="create-image">Create image</button>
+    <form class="createImage" ng-submit="createImage()">
+        <input type="text" placeholder="Enter image name" ng-model="formImage.name">
+        <button type="submit" class="create-image">Create image</button>
+    </form>
     <table class="openstack-images">
         <tr>
             <th>Name</th>
@@ -81,7 +84,7 @@
 <h3 id="servers">Servers: </h3>
 {{#if servers.length}}
     <i>{{servers.length}} servers available</i>&nbsp;&nbsp;&nbsp;&nbsp;
-    <a href="/createIntance" class="create-server">*** Create Server *** </a>
+    <a href="/createInstance" class="create-server">*** Create Server *** </a>
     <ul class="openstack-servers projectClass">
     {{#each servers}}
         <li data-id="{{id}}" data-href="{{links.[0].href}}">

@@ -35,7 +35,7 @@ angular.module('pkcloudApp', [])
 
     /** Start VM */
     $scope.startVM = function(id) {
-        var data = window.CMPE283_AuthData || {};
+        var data = angular.copy({}, window.CMPE283_AuthData || {});
         data.server_id = id;
         //console.log(data);
         $http({
@@ -54,7 +54,7 @@ angular.module('pkcloudApp', [])
 
     /** Stop VM */
     $scope.stopVM = function(id) {
-        var data = window.CMPE283_AuthData || {};
+        var data = angular.copy({}, window.CMPE283_AuthData || {});
         data.server_id = id;
         $http({
             method  : 'POST',
@@ -68,6 +68,29 @@ angular.module('pkcloudApp', [])
         }, function(err) {
             alert('Stop VM failed');
         });
+    };
+
+    /** Create images */
+    $scope.createImage = function() {
+        var data = angular.copy({}, window.CMPE283_AuthData || {});
+        data.image = $scope.formImage.name;
+        alert("Create images, image name: " + $scope.formImage.name);
+        $http({
+            method  : 'POST',
+            url     : '/createImage',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create image successfully');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Create image failed');
+        });
+    };
+
+    /** Create servers */
+    $scope.createServer = function() {
+
     };
 
 }]);

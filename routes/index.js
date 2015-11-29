@@ -88,7 +88,12 @@ exports.serverDetails = function(req, res, next) {
 
 /** The followings are method to create images, server, DB instances... */
 exports.createImage = function(req, res, next) {
-    res.status(200).send('OK');
+    var data = getAuthDataOnPost(req);
+    dataSrc.createImage(data).then(function() {
+        res.status(200).send('OK');
+    }, function() {
+        res.status(500).send('FAIL');
+    });
 };
 
 exports.createServer = function(req, res, next) {
@@ -102,7 +107,8 @@ function getAuthDataOnPost(req) {
     var data = {
         'token': req.body.token,
         'tenant_id': req.body.tenant_id,
-        'server_id': req.body.server_id || ''
+        'server_id': req.body.server_id || '',
+        'imagename': req.body.image || 'Default image name'
     };
     return data;
 }
