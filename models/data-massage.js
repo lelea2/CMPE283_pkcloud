@@ -52,7 +52,9 @@ module.exports = (function() {
     }
 
     function createImage(data) {
-        return getData('CREATE_IMAGES', OPENSTACK_CONFIG.NEW_IMAGE_1, data);
+        var imageData = OPENSTACK_CONFIG.NEW_IMAGE_1;
+        imageData.name = data.imagename;
+        return getData('CREATE_IMAGES', imageData, data);
     }
 
     function createServer(data, size) {

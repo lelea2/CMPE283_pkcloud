@@ -44,7 +44,7 @@ module.exports = {
             }]
         }
     },
-    "NEW_IMAGE_1": {
+    "NEW_IMAGE_1": { //hardcode image type
         "name": "Ubuntu 12.10",
         "tags": [
             "ubuntu",
