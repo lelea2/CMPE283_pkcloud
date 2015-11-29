@@ -75,7 +75,7 @@ angular.module('pkcloudApp', [])
     $scope.createImage = function() {
         var data = angular.extend({}, window.CMPE283_AuthData);
         data.image = $scope.formImage.name;
-        console.log(data);
+        //console.log(data);
         alert("Create images, image name: " + $scope.formImage.name);
         $http({
             method  : 'POST',

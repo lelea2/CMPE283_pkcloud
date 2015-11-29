@@ -149,7 +149,6 @@ exports.ajaxLogin = function(req, res, next) {
     console.log("pwd:"+pwd);
     //if pass store in cookies and redirect to dashboard
     res.render('dashboard', {}, function (err, html) {
-        console.log("signin:"+JSON.stringify(req));
         if (err) { console.log(err);return next(err);}
         res.send(helper.minifyHTML(html));
     });
