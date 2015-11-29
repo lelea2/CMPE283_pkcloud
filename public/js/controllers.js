@@ -30,7 +30,7 @@ angular.module('pkcloudApp', [])
             data    : $.param($scope.formSigninData),  // pass in data as strings
             headers : getHeaders()
         }).then(function(data) {
-            console.log(data);
+            //console.log(data);
             window.location = '/dashboard'; //redirect to dashboard
         }, function(err) {
             alert('Fail to login. Please try again');

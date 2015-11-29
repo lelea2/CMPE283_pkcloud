@@ -84,9 +84,24 @@ exports.instances = function(req, res, next) {
 //Create view for server detail
 exports.serverDetails = function(req, res, next) {
     var data = getAuthData(req);
-    res.render('serverDetails', {'authData': data}, function(err, html) {
-        if (err) { return next(err); }
-        res.send(helper.minifyHTML(html));
+    dataSrc.getServers(data).then(function(result) {
+        var serverArr = result.servers;
+        var serverIds = [];
+        var objFunc = [];
+        for (var i = 0; i < serverArr.length; i++) {
+            if (serverArr[i].status === 'ACTIVE') {
+                serverIds.push({'id': serverArr[i].id, 'name': serverArr[i].name });
+                data.server_id = serverArr[i].id;
+                objFunc.push(dataSrc.getServerDiagnostic(data));
+            }
+        }
+        Q.all(objFunc).then(function(result) {
+            console.log(result);
+            res.render('serverDetails', {'authData': data, 'diagnostic': result}, function(err, html) {
+                if (err) { return next(err); }
+                res.send(helper.minifyHTML(html));
+            });
+        });
     });
 };
 

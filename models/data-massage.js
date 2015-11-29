@@ -67,7 +67,7 @@ module.exports = (function() {
             serverData = OPENSTACK_CONFIG.NEW_SERVER_LARGE;
         }
         serverData.server.name = data.servername;
-        console.log(serverData);
+        //console.log(serverData);
         return getData('CREATE_SERVER', serverData, data);
     }
 
@@ -127,7 +127,7 @@ module.exports = (function() {
     function getReturnObj(error, response, body) {
         try {
             var statusCode = parseInt(response.statusCode, 10);
-            console.log(body);
+            //console.log(body);
             if (!error && response && (statusCode >= 200 && statusCode < 300)) {
                 return body;
             }
