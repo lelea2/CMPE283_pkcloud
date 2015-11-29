@@ -36,7 +36,7 @@ module.exports = {
     "DELETE_SERVER": {
         "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}",
         "method": "DELETE"
-    }
+    },
     "CREATE_IMAGES": { //Glance
         "url": "http://localhost:9292/v2/images",
         "method": "POST"
