@@ -59,11 +59,11 @@ module.exports = (function() {
 
     function createServer(data, size) {
         var serverData = OPENSTACK_CONFIG.NEW_SERVER_SMALL;
-        serverData.server.name = data.servername;
         if (size === 'large') {
             serverData = OPENSTACK_CONFIG.NEW_SERVER_LARGE;
         }
-        console.log(serverData);
+        serverData.server.name = data.servername;
+        //console.log(serverData);
         return getData('CREATE_SERVER', serverData, data);
     }
 
@@ -108,7 +108,7 @@ module.exports = (function() {
     function getData(calltype, reqObj, data) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj, data);
-        console.log('Request obj=' + JSON.stringify(obj));
+        //console.log('Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             d.resolve(result);

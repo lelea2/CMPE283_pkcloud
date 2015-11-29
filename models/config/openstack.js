@@ -35,7 +35,7 @@ module.exports = {
         "server": {
             "name": "Server 1",
             "imageRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/images/8c684853-ba93-454b-821d-12a5d7b1b328",
-            "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/5",
+            "flavorRef": "http://localhost:8774/v2/3888f8ff7d7c4c4a805ba2e5b98416eb/flavors/4",
             "metadata": {
                 "My Server Name": "Large Website"
             },
