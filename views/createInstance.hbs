@@ -3,9 +3,9 @@
 <div class="contentPosition">
     <ul>
         <li>
-            <form id="createform">
+            <form id="createform" ng-submit="createServer()">
                 <ul>
-                    <li><span>Instance Name</span><input id="instanceName" type="text" required/></li>
+                    <li><span>Instance Name</span><input id="instanceName" type="text" required /></li>
                     <li>
                         <span>vCPU</span>
                         <select id="vCPU" required>

@@ -28,7 +28,7 @@
 {{#if images.length}}
     <i>{{images.length}} Images available</i>
     <form class="createImage" ng-submit="createImage()">
-        <input type="text" placeholder="Enter image name" ng-model="formImage.name">
+        <input type="text" placeholder="Enter image name" required ng-model="formImage.name">
         <button type="submit" class="create-image">Create image</button>
     </form>
     <table class="openstack-images">
