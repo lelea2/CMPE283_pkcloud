@@ -72,9 +72,9 @@ angular.module('pkcloudApp', [])
 
     /** Create images */
     $scope.createImage = function() {
-        alert("Create images");
         var data = angular.copy({}, window.CMPE283_AuthData || {});
         data.image = $scope.formImage.name;
+        alert("Create images, image name: " + $scope.formImage.name);
         $http({
             method  : 'POST',
             url     : '/createImage',
@@ -86,6 +86,11 @@ angular.module('pkcloudApp', [])
         }, function(err) {
             alert('Create image failed');
         });
+    };
+
+    /** Create servers */
+    $scope.createServer = function() {
+
     };
 
 }]);
