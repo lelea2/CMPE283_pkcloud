@@ -46,7 +46,6 @@ exports.signout = function(req, res, next) {
 //Dashboard view
 exports.dashboard = function(req, res, next) {
     var data = getAuthData(req);
-    console.log(data);
     Q.all([
         dataSrc.getImages(data),
         dataSrc.getFlavors(data),
@@ -55,7 +54,6 @@ exports.dashboard = function(req, res, next) {
         dataSrc.getSubnets(data),
         dataSrc.getLimits(data)
     ]).then(function(result) {
-        //console.log(result);
         var renderData = {
             'images': result[0].images,
             'flavors': result[1].flavors,
@@ -76,7 +74,7 @@ exports.dashboard = function(req, res, next) {
 //Create instance page view
 exports.instances = function(req, res, next) {
     var data = getAuthData(req);
-    console.log(data);
+    //console.log(data);
     res.render('createInstance', {'authData': data}, function(err, html) {
         if (err) { return next(err); }
         res.send(helper.minifyHTML(html));
