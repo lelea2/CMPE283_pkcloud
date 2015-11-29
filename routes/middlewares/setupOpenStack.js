@@ -27,9 +27,7 @@ module.exports = (function() {
                     req.body = req.body || {};
                     req.body.openStack = token;
                     console.log('done settings....');
-                    if(true){
 
-                    }
                     //res.redirect(302, '/dashboard');
                 } catch(ex) {
                     console.log(ex);
