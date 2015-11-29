@@ -56,7 +56,8 @@ app.set('view engine', 'hbs');
 /***************** Handle Routing ******************/
 /***************************************************/
 app.get('/', middleware.authenticateOSClient(), routes.signin);
-app.get('/signin', middleware.authenticateOSClient(), routes.signin);
+app.get('/signin', routes.signin);
+app.get('/signout', middleware.authenticateOSClient(), routes.signout);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
 app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
 app.get('/serverDetails', middleware.authenticateOSClient(), routes.serverDetails);

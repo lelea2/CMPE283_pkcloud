@@ -38,7 +38,11 @@ exports.signin = function(req, res, next) {
         res.send(helper.minifyHTML(html));
     });
 };
-
+/*signout*/
+exports.signout = function(req, res, next) {
+    user.logout(req);
+    res.redirect(302, '/signin');
+};
 //Dashboard view
 exports.dashboard = function(req, res, next) {
     var data = getAuthData(req);
@@ -136,41 +140,24 @@ exports.stopVM = function(req, res, next) {
  */
 exports.ajaxLogin = function(req, res, next) {
     //if browser has cookies already, just redirect to dashboard
- /*   var userId = user.getUserId(req);
-    console.log("userid:"+userId);
-    if(userId === ""){
 
-    }*/
     //check certification
-    console.log("ajaxLoginajaxLoginajaxLoginajaxLoginajaxLoginajaxLogin");
     var name = req.body.name,
         pwd = req.body.password;
     console.log("name:"+name);
     console.log("pwd:"+pwd);
     //if pass store in cookies and redirect to dashboard
-    res.render('dashboard', {}, function (err, html) {
-        if (err) { console.log(err);return next(err);}
-        res.send(helper.minifyHTML(html));
-    });
-    //did not pass redirect back to signin page
-
-    //check cookies
-
-
-   /* var name = req.body.name,
-        pwd = req.body.password;
-    console.log("name:"+name);
-    console.log("pwd:"+pwd);
-    res.status(200).json("testing");*/
-/*    dataSrc.logIn(name, pwd).then(function(result) {
-        if (result && result.userId) {
-            user.setUserCookie(req, result.userId);
-            res.status(200).json(result);
-        } else {
-            res.status(500).json(result);
-        }
-    }, function(err) {
-        res.status(500).json(err);
-    });*/
-
+    if(true){
+        user.setUserCookie(req,"CMPE283");
+        res.render('dashboard', {}, function (err, html) {
+            if (err) { console.log(err);return next(err);}
+            res.send(helper.minifyHTML(html));
+        });
+    }  //did not pass redirect back to signin page
+    else{
+        res.render('signin', {}, function (err, html) {
+            if (err) { console.log(err);return next(err);}
+            res.send(helper.minifyHTML(html));
+        });
+    }
 };

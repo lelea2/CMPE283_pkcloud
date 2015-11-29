@@ -8,11 +8,15 @@ var Cookies = require('cookies'),
         overwrite: true,
         expires: 0
     };
-
+var user = require('../../models/config/user');
 module.exports = (function() {
 
     function authenticateOSClient() {
         return function (req, res, next) {
+            var uid = user.getUserId(req);
+            if(uid == "" ||uid == {} || uid == null){
+                res.redirect(302, '/signin');
+            }
             console.log('Setting open stack authentication....');
             var res = dataMassage.getToken(req).then(function(result) {
                 try {

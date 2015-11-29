@@ -37,7 +37,6 @@ module.exports = (function(){
         try {
             var cookies = new Cookies(req, req.res);
             var userCookie = cookies.get(USER_COOKIE);
-            //var userId = security.decrypt(userCookie);
             var userId = security.decrypt(userCookie);
             return userId;
         } catch(ex) {

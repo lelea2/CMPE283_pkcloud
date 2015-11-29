@@ -1,12 +1,15 @@
 /** Configuration for open stack properties **/
-
+var TestInfo ={
+    Martin_Pwd:"secrete",
+    Khanh_Pwd:"ab08f97872024503"
+ };
 module.exports = {
     "AUTHENTICATION": { //Admin data fro open stack login
         "auth": {
             "tenantName":"admin",
             "passwordCredentials": {
                 "username":"admin",
-                "password":"ab08f97872024503"
+                "password":TestInfo.Martin_Pwd
             }
         }
     },
