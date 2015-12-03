@@ -4,6 +4,10 @@ angular.module('pkcloudApp', [])
 
     $scope.formSigninData = {};
 
+    $scope.formCreate = { //default for small website
+        size: 'small'
+    };
+
     function getHeaders() {
         return {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -26,7 +30,7 @@ angular.module('pkcloudApp', [])
             data    : $.param($scope.formSigninData),  // pass in data as strings
             headers : getHeaders()
         }).then(function(data) {
-            console.log(data);
+            //console.log(data);
             window.location = '/dashboard'; //redirect to dashboard
         }, function(err) {
             alert('Fail to login. Please try again');
@@ -90,10 +94,83 @@ angular.module('pkcloudApp', [])
         });
     };
 
+    /**
+     * Create nework
+     */
+    $scope.createNetwork = function() {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.network = $scope.formNetwork.name;
+        //console.log(data);
+        alert("Create network, network name: " + $scope.formNetwork.name);
+        $http({
+            method  : 'POST',
+            url     : '/createNetwork',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create network successfully');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Create network failed');
+        });
+    };
+
+    /**
+     * Create nework
+     */
+    $scope.createSubnet = function() {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.subnet = $scope.formSubnet.name;
+        //console.log(data);
+        alert("Create subnet, subnet name: " + $scope.formSubnet.name);
+        $http({
+            method  : 'POST',
+            url     : '/createSubnet',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create subnet successfully');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Create subnet failed');
+        });
+    };
+
     /** Create servers */
     $scope.createServer = function() {
-        var data = angular.copy({}, window.CMPE283_AuthData || {});
+        //alert($scope.formCreate.size);
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.size = $scope.formCreate.size;
+        data.servername = $scope.formCreate.name;
+        alert('Creating server "' + $scope.formCreate.name + '" as ' + $scope.formCreate.size + ' instance');
+        $http({
+            method  : 'POST',
+            url     : '/createServer',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create server successfully');
+            window.location = '/serverDetail'; //redirect back to dashboard
+        }, function(err) {
+            alert('Create image failed');
+        });
+    };
 
+    /** Delete server */
+    $scope.deleteServer = function(id) {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.server_id = id;
+        $http({
+            method  : 'POST',
+            url     : '/deleteVM',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Delete VM success');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Stop VM failed');
+        });
     };
 
 }]);

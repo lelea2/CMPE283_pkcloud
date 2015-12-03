@@ -181,6 +181,7 @@ table tr td {
 .pageTitlePosition a {
     color: #3333FF;
     text-decoration: underline;
+    cursor: pointer;
 }
 hr {
     width: 90%;
@@ -188,6 +189,8 @@ hr {
     border-top: 2px solid #ccc;
 }
 
+form.createNetwork input,
+form.createSubnet input,
 form.createImage input {
     padding: 5px;
     line-height: 30px;
@@ -196,6 +199,8 @@ form.createImage input {
     border: 1px solid #ccc;
 }
 
+form.createNetwork button,
+form.createSubnet button,
 form.createImage button {
     height: 40px;
     color: #fff;

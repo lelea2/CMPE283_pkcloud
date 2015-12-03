@@ -47,6 +47,10 @@ module.exports = (function() {
         return getData('START_VM', OPENSTACK_CONFIG.STOP_VM, data);
     }
 
+    function deleteVM(data) {
+        return getData('DELETE_SERVER', null, data);
+    }
+
     function getServerDiagnostic(data) {
         return getData('SERVER_DIAGNOSTIC', null, data);
     }
@@ -58,11 +62,25 @@ module.exports = (function() {
     }
 
     function createServer(data, size) {
-        if (size === 'smallWebsite') {
-            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_SMALL, data);
-        } else {
-            return getData('CREATE_SERVER', OPENSTACK_CONFIG.NEW_SERVER_LARGE, data);
+        var serverData = OPENSTACK_CONFIG.NEW_SERVER_SMALL;
+        if (size === 'large') {
+            serverData = OPENSTACK_CONFIG.NEW_SERVER_LARGE;
         }
+        serverData.server.name = data.servername;
+        //console.log(serverData);
+        return getData('CREATE_SERVER', serverData, data);
+    }
+
+    function createNetwork(data) {
+        var networkData = OPENSTACK_CONFIG.NEW_NETWORK;
+        networkData.network.name = data.networkname;
+        return getData('CREATE_NETWORK', networkData, data);
+    }
+
+    function createSubNet(data) {
+        var subnetData = OPENSTACK_CONFIG.NEW_SUBNET;
+        subnetData.subnet.name = data.subnetname;
+        return getData('CREATE_SUBNET', subnetData, data);
     }
 
     /**
@@ -106,7 +124,7 @@ module.exports = (function() {
     function getData(calltype, reqObj, data) {
         var d = Q.defer(),
             obj = generateReqBody(calltype, reqObj, data);
-        console.log('Request obj=' + JSON.stringify(obj));
+        //console.log('Request obj=' + JSON.stringify(obj));
         request(obj, function(error, response, body) {
             var result = getReturnObj(error, response, body);
             d.resolve(result);
@@ -120,14 +138,12 @@ module.exports = (function() {
      */
     function getReturnObj(error, response, body) {
         try {
-            //console.log(response.statusCode);
-            //console.log(error);
             var statusCode = parseInt(response.statusCode, 10);
+            //console.log(body);
             if (!error && response && (statusCode >= 200 && statusCode < 300)) {
                 return body;
             }
-        } catch(ex) { /* istanbul ignore next */
-            console.log(ex);
+        } catch(ex) {
         }
         return {}; //return empty for failure case
     }
@@ -144,7 +160,10 @@ module.exports = (function() {
         getServerDiagnostic: getServerDiagnostic,
         startVM: startVM,
         stopVM: stopVM,
+        deleteVM: deleteVM,
         createImage: createImage,
-        createServer: createServer
+        createServer: createServer,
+        createNetwork: createNetwork,
+        createSubNet: createSubNet
     };
 }());

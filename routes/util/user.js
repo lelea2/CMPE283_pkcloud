@@ -1,11 +1,11 @@
 /** Config files stores list of user for authentication */
 
 var Cookies = require('cookies'),
-    security = require('../../routes/util/security.js'),
+    security = require('./security.js'),
     USER_COOKIE = 'u',
     TTL = 15 * 24 * 3600 * 1000; //15 days
 
-module.exports = (function(){
+module.exports = (function() {
 /*    "SYSTEM_LOGIN": {
         "username":"user1",
         "password":"userpassword"

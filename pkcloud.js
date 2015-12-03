@@ -16,8 +16,12 @@ var express = require('express'),
   http = require('http'),
   https = require('https'),
   path = require('path');
-
+//------- load balancing---
+var cluster = require('cluster');
+var http = require('http');
+var numCPUs = require('os').cpus().length;
 var app = module.exports = express();
+//-------
 
 /**
  * Middleware for JSON-ify MessageBodyReader
@@ -60,13 +64,16 @@ app.get('/signin', routes.signin);
 app.get('/signout', middleware.authenticateOSClient(), routes.signout);
 app.get('/dashboard', middleware.authenticateOSClient(), routes.dashboard);
 app.get('/createInstance', middleware.authenticateOSClient(), routes.instances);
-app.get('/serverDetails', middleware.authenticateOSClient(), routes.serverDetails);
+app.get('/serverDetail', middleware.authenticateOSClient(), routes.serverDetails);
 
 
 app.post('/createImage', routes.createImage);
+app.post('/createNetwork', routes.createNetwork);
+app.post('/createSubnet', routes.createSubNet);
 app.post('/createServer', routes.createServer);
 app.post('/startVM', routes.startVM);
 app.post('/stopVM', routes.stopVM);
+app.post('/deleteVM', routes.deleteVM);
 
 
 //Handle ajax post
@@ -78,13 +85,27 @@ var oneWeek = 7 * 24 * 3600 * 1000; //caching time in miliseconds
 app.use(compression());
 app.get('*', express.static(path.join(__dirname, 'public'), { maxAge: oneWeek }));
 
-/**
+/*
  * Start Server on port given or default port
- */
 http.createServer(app).listen(app.get('port'), function () {
     console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
 
-//https.createServer(options, app).listen(443);
+
+if (cluster.isMaster) {
+    // Fork workers.
+    for (var i = 0; i < numCPUs; i++) {
+        cluster.fork();
+    }
+    cluster.on('exit', function(worker, code, signal) {
+        console.log('worker ' + worker.process.pid + ' died');
+    });
+} else {
+    // Workers can share any TCP connection
+    // In this case its a HTTP server
+    http.createServer(app).listen(app.get('port'), function () {
+        console.log('Express server listening on port ' + app.get('port'));
+    });
+}
 
 

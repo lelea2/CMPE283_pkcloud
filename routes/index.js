@@ -5,9 +5,9 @@
 var dataSrc = require('../models/data-massage'),
     //openStackClient = require('../models/manage-client');
     helper = require('../models/util/helper'),
-    Q = require('q');
-var user = require('../models/config/user');
-//console.log(helper);
+    Q = require('q'),
+    user = require('./util/user');
+
 /************************************************************************/
 /**                            Handle Routing                          **/
 /************************************************************************/
@@ -54,7 +54,6 @@ exports.dashboard = function(req, res, next) {
         dataSrc.getSubnets(data),
         dataSrc.getLimits(data)
     ]).then(function(result) {
-        //console.log(result);
         var renderData = {
             'images': result[0].images,
             'flavors': result[1].flavors,
@@ -75,6 +74,7 @@ exports.dashboard = function(req, res, next) {
 //Create instance page view
 exports.instances = function(req, res, next) {
     var data = getAuthData(req);
+    //console.log(data);
     res.render('createInstance', {'authData': data}, function(err, html) {
         if (err) { return next(err); }
         res.send(helper.minifyHTML(html));
@@ -84,24 +84,66 @@ exports.instances = function(req, res, next) {
 //Create view for server detail
 exports.serverDetails = function(req, res, next) {
     var data = getAuthData(req);
-    res.render('serverDetails', {'authData': data}, function(err, html) {
-        if (err) { return next(err); }
-        res.send(helper.minifyHTML(html));
+    dataSrc.getServers(data).then(function(result) {
+        var serverArr = result.servers;
+        var serverIds = [];
+        var objFunc = [];
+        for (var i = 0; i < serverArr.length; i++) {
+            if (serverArr[i].status === 'ACTIVE') {
+                serverIds.push({'id': serverArr[i].id, 'name': serverArr[i].name });
+                data.server_id = serverArr[i].id;
+                objFunc.push(dataSrc.getServerDiagnostic(data));
+            }
+        }
+        Q.all(objFunc).then(function(result) {
+            //console.log(result);
+            for (var j = 0; j < serverIds.length; j++) {
+                serverIds[j].diagnostic = result[j];
+            }
+            res.render('serverDetails', {'authData': data, 'info': serverIds}, function(err, html) {
+                if (err) { return next(err); }
+                res.send(helper.minifyHTML(html));
+            });
+        });
     });
 };
 
 /** The followings are method to create images, server, DB instances... */
 exports.createImage = function(req, res, next) {
     var data = getAuthDataOnPost(req);
-    dataSrc.createImage(data).then(function() {
+    dataSrc.createImage(data).then(function(result) {
         res.status(200).send('OK');
-    }, function() {
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
+};
+
+exports.createNetwork = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.createNetwork(data).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
+};
+
+exports.createSubNet = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.createSubNet(data).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
         res.status(500).send('FAIL');
     });
 };
 
 exports.createServer = function(req, res, next) {
-    res.status(200).send('OK');
+    var data = getAuthDataOnPost(req),
+        size = data.size;
+    dataSrc.createServer(data, size).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
 };
 
 /**
@@ -112,7 +154,11 @@ function getAuthDataOnPost(req) {
         'token': req.body.token,
         'tenant_id': req.body.tenant_id,
         'server_id': req.body.server_id || '',
-        'imagename': req.body.image || 'Default image name'
+        'imagename': req.body.image || 'Default image name',
+        'networkname': req.body.network || 'Sample network',
+        'subnetname': req.body.subnet || 'Sample subnet',
+        'size': req.body.size || 'small',
+        'servername': req.body.servername || 'My new server'
     };
     return data;
 }
@@ -129,6 +175,15 @@ exports.startVM = function(req, res, next) {
 exports.stopVM = function(req, res, next) {
     var data = getAuthDataOnPost(req);
     dataSrc.stopVM(data).then(function() {
+        res.status(200).send('OK');
+    }, function() {
+        res.status(500).send('FAIL');
+    });
+};
+
+exports.deleteVM = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.deleteVM(data).then(function() {
         res.status(200).send('OK');
     }, function() {
         res.status(500).send('FAIL');
