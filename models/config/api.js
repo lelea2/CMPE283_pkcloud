@@ -41,6 +41,14 @@ module.exports = {
         "url": "http://localhost:9292/v2/images",
         "method": "POST"
     },
+    "CREATE_SUBNET": {
+        "url": "http://localhost:9696/v2.0/subnets",
+        "method": "POST"
+    },
+    "CREATE_NETWORK": {
+        "url": "http://localhost:9696/v2.0/networks",
+        "method": "POST"
+    },
     "START_VM": {
         "url": "http://localhost:8774/v2/{tenant_id}/servers/{server_id}/action",
         "method": "POST"

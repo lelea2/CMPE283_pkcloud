@@ -118,6 +118,24 @@ exports.createImage = function(req, res, next) {
     });
 };
 
+exports.createNetwork = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.createNetwork(data).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
+};
+
+exports.createSubNet = function(req, res, next) {
+    var data = getAuthDataOnPost(req);
+    dataSrc.createSubNet(data).then(function(result) {
+        res.status(200).send('OK');
+    }, function(err) {
+        res.status(500).send('FAIL');
+    });
+};
+
 exports.createServer = function(req, res, next) {
     var data = getAuthDataOnPost(req),
         size = data.size;
@@ -137,6 +155,8 @@ function getAuthDataOnPost(req) {
         'tenant_id': req.body.tenant_id,
         'server_id': req.body.server_id || '',
         'imagename': req.body.image || 'Default image name',
+        'networkname': req.body.network || 'Sample network',
+        'subnetname': req.body.subnet || 'Sample subnet',
         'size': req.body.size || 'small',
         'servername': req.body.servername || 'My new server'
     };

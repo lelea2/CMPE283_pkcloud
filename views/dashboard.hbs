@@ -131,6 +131,10 @@
 <h3>Networks: </h3>
 {{#if networks.length}}
     <i>{{networks.length}} servers available</i>
+    <form class="createNetwork" ng-submit="createNetwork()">
+        <input type="text" placeholder="Enter network name" required ng-model="formNetwork.name">
+        <button type="submit" class="create-network">Create network</button>
+    </form>
     <!--<button type="button" class="create-network">Create Network</button>-->
     <table class="openstack-networks">
         <tr>
@@ -158,10 +162,17 @@
     </table>
 {{else}}
     There's currently no nova flavors configured
-    <button type="button" class="create-network">Create Network</button>
+    <form class="createNetwork" ng-submit="createNetwork()">
+        <input type="text" placeholder="Enter network name" required ng-model="formNetwork.name">
+        <button type="submit" class="create-network">Create network</button>
+    </form>
 {{/if}}
 
 <h3>Subnets information</h3>
+<form class="createSubnet" ng-submit="createSubnet()">
+    <input type="text" placeholder="Enter subnet name" required ng-model="formSubnet.name">
+    <button type="submit" class="create-subnet">Create subnet</button>
+</form>
 {{#if subnets.length}}
     <table class="openstack-subnets">
         <tr>

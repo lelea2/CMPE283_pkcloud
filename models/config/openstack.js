@@ -80,6 +80,20 @@ module.exports = {
             }
         }
     },
+    "NEW_SUBNET": {
+        "subnet": {
+            "name": "sample_subnet", //name changed based on FE request
+            "network_id": "5138d56c-1b6a-4981-b5a7-3072818963e0",
+            "ip_version": 4,
+            "cidr": "192.168.199.0/24" //1 IP per subnet, change this ip or network Id to create a new one
+        }
+    },
+    "NEW_NETWORK": {
+        "network": {
+            "name": "sample_network", //name changed based on FE request
+            "admin_state_up": true
+        }
+    },
     "START_VM": {
         "os-start": null
     },

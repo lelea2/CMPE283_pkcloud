@@ -71,6 +71,18 @@ module.exports = (function() {
         return getData('CREATE_SERVER', serverData, data);
     }
 
+    function createNetwork(data) {
+        var networkData = OPENSTACK_CONFIG.NEW_NETWORK;
+        networkData.network.name = data.networkname;
+        return getData('CREATE_NETWORK', networkData, data);
+    }
+
+    function createSubNet(data) {
+        var subnetData = OPENSTACK_CONFIG.NEW_SUBNET;
+        subnetData.subnet.name = data.subnetname;
+        return getData('CREATE_SUBNET', subnetData, data);
+    }
+
     /**
      * Generate REST url
      * @return {String} url
@@ -150,6 +162,8 @@ module.exports = (function() {
         stopVM: stopVM,
         deleteVM: deleteVM,
         createImage: createImage,
-        createServer: createServer
+        createServer: createServer,
+        createNetwork: createNetwork,
+        createSubNet: createSubNet
     };
 }());

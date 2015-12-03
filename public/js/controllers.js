@@ -94,6 +94,48 @@ angular.module('pkcloudApp', [])
         });
     };
 
+    /**
+     * Create nework
+     */
+    $scope.createNetwork = function() {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.network = $scope.formNetwork.name;
+        //console.log(data);
+        alert("Create network, network name: " + $scope.formNetwork.name);
+        $http({
+            method  : 'POST',
+            url     : '/createNetwork',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create network successfully');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Create network failed');
+        });
+    };
+
+    /**
+     * Create nework
+     */
+    $scope.createSubnet = function() {
+        var data = angular.extend({}, window.CMPE283_AuthData);
+        data.subnet = $scope.formSubnet.name;
+        //console.log(data);
+        alert("Create subnet, subnet name: " + $scope.formSubnet.name);
+        $http({
+            method  : 'POST',
+            url     : '/createSubnet',
+            data    : $.param(data),  // pass in data as strings
+            headers : getHeaders()
+        }).then(function(data) {
+            alert('Create subnet successfully');
+            window.location.reload(true);
+        }, function(err) {
+            alert('Create subnet failed');
+        });
+    };
+
     /** Create servers */
     $scope.createServer = function() {
         //alert($scope.formCreate.size);

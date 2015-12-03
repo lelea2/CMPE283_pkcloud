@@ -64,6 +64,8 @@ app.get('/serverDetail', middleware.authenticateOSClient(), routes.serverDetails
 
 
 app.post('/createImage', routes.createImage);
+app.post('/createNetwork', routes.createNetwork);
+app.post('/createSubnet', routes.createSubNet);
 app.post('/createServer', routes.createServer);
 app.post('/startVM', routes.startVM);
 app.post('/stopVM', routes.stopVM);
